@@ -1,4 +1,5 @@
 *.env
+seeder.js
 
 /node_modules
 /build

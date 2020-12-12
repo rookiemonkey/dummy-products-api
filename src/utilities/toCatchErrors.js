@@ -35,7 +35,7 @@ const toCatchErrors = (error, req, res, next) => {
 
         // Log any undocumented errors
         default:
-            process.env.API_ENVIRONMENT === 'development'
+            process.env.NODE_ENV === 'development'
                 ? console.log(chalk.red('[WARNING!]: An undocumented error occured \n'), error)
                 : null
 

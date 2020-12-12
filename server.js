@@ -41,8 +41,8 @@ app.use(toCatchErrors)
 // =============================================
 // SERVER
 // =============================================
-app.listen(process.env.API_PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(
-        chalk.yellowBright(`[STATUS] SERVER HAS STARTED AT PORT ${process.env.API_PORT}`)
+        chalk.yellowBright(`[STATUS] SERVER HAS STARTED AT PORT ${process.env.PORT}`)
     );
 });

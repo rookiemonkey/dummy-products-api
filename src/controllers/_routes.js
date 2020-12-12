@@ -11,6 +11,8 @@ router.get('/departments/:deptId/topsales', DepartmentController.getAllTopSales)
 
 // PRODUCT Controllers
 router.get('/products', ProductController.getAllProducts)
+router.get('/products/toprated', ProductController.getAllTopRated)
+router.get('/products/topsales', ProductController.getAllTopSales)
 router.get('/products/:prodId', ProductController.getAProduct)
 
 module.exports = router;

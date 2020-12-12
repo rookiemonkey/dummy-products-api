@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 const Departments = require('../models/_department');
 
 /**
- * !PATH: /api/dummyproducts/departments
+ * !PATH: /api/v1/departments
  * returns all the available product departments
  */
 const getAllDepartments = handleAsync(async (req, res, next) => {
@@ -25,7 +25,7 @@ const getAllDepartments = handleAsync(async (req, res, next) => {
 })
 
 /**
- * !PATH: /api/dummyproducts/departments/:deptId
+ * !PATH: /api/v1/departments/:deptId
  * returns all the available products on a given department
  */
 const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
@@ -42,14 +42,14 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
 
 
 /**
- * !PATH: /api/dummyproducts/departments/:deptId/toprated
+ * !PATH: /api/v1/departments/:deptId/toprated
  * returns all the available products on a given department with ratings more than 4
  */
 const getAllTopRated = handleAsync(async (req, res, next) => {
     const product_departmentId = req.params.deptId
     const departmentTopRated= await Product
         .find({ product_departmentId, product_ratings: { $gte: 4, $lte: 5 } })
-        .sort({ product_sales: 'descending' })
+        .sort({ product_ratings: 'descending' })
         .limit(10);
 
     res.json({
@@ -62,7 +62,7 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
 
 
 /**
- * !PATH: /api/dummyproducts/departments/:deptId/topsales
+ * !PATH: /api/v1/departments/:deptId/topsales
  * returns all the available products on a given department with sales more than 1000
  */
 const getAllTopSales = handleAsync(async (req, res, next) => {

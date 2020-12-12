@@ -14,7 +14,7 @@ GET | [`https://XXXXXXXXX/`](https://XXXXXXXXX/)
 Data | Endpoint
 ------------ | -------------
 All Departments | ```/api/v1/departments```
-All Products of a Department | ```/api/v1/dummyproducts/departments/{{department_id}}```
+All Products of a Department | ```/api/v1/v1/departments/{{department_id}}```
 Top Rated Products of a Department | ```/api/v1/departments/{{department_id}}/toprated```
 Top Sales Products of a Department | ```/api/v1/departments/{{department_id}}/topsales```
 
@@ -22,11 +22,15 @@ Top Sales Products of a Department | ```/api/v1/departments/{{department_id}}/to
 Data | Endpoint
 ------------ | -------------
 All Products | ```/api/v1/products```
-A Product | ```/api/v1/products/{{product_id}}```
+All Top Rated Products | ```/api/v1/products/toprated```
+All Top Sales Products | ```/api/v1/products/topsales```
+Get A Product | ```/api/v1/products/{{product_id}}```
+
 
 ### TO DO LIST
 - require api keys as query string
 - proper documentation website
+- dummy reviews for each dummy product (Review Model)
 
 
 ## Author: <i>Kevin Roi R. Basina</i>

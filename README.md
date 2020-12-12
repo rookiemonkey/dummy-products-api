@@ -14,7 +14,7 @@ GET | [`https://XXXXXXXXX/`](https://XXXXXXXXX/)
 Data | Endpoint
 ------------ | -------------
 All Departments | ```/api/v1/departments```
-All Products of a Department | ```/api/v1/v1/departments/{{department_id}}```
+All Products of a Department | ```/api/v1/departments/{{department_id}}```
 Top Rated Products of a Department | ```/api/v1/departments/{{department_id}}/toprated```
 Top Sales Products of a Department | ```/api/v1/departments/{{department_id}}/topsales```
 

@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 // =============================================
 // ROUTE: all prefixed with '/api/dummyproducts'
 // =============================================
-app.use('/api/dummyproducts', api)
+app.use('/api/v1', api)
 
 
 

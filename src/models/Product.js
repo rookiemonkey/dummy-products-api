@@ -48,7 +48,7 @@ const productSchema = new mongoose.Schema({
     },
     product_ratings: {
         type: Number,
-        default: () => Math.floor(Math.random() * 5)
+        default: () => Math.floor(Math.random() * 6)
     },
     product_sales: {
         type: Number,

@@ -14,6 +14,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    product_departmentId: {
+        type: String,
+        required: true
+    },
     product_image_sm: {
         type: String,
         default: "https://via.placeholder.com/150?text='placeholder.com'"

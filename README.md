@@ -8,7 +8,11 @@ This API aims to replicate the behaviour of various ecommerce websites. It provi
 
 METHOD | Base URL
 ------------ | -------------
-GET | [`https://XXXXXXXXX/`](https://XXXXXXXXX/)
+GET | [`https://dummyproducts-api.herokuapp.com`](https://dummyproducts-api.herokuapp.com)
+
+## CAVEATS
+
+- 400 api calls per day
 
 ### DEPARTMENTS
 Data | Endpoint

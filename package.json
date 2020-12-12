@@ -11,9 +11,13 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.2.3",
     "faker": "^5.1.0",
+    "helmet": "^4.2.0",
+    "hpp": "^0.2.3",
     "mongoose": "^5.11.4",
     "morgan": "^1.10.0"
   },

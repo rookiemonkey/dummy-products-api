@@ -9,5 +9,6 @@ router.get('/departments/:deptId', DepartmentController.getAllDepartmentProducts
 
 // PRODUCT Controllers
 router.get('/products', ProductController.getAllProducts)
+router.get('/products/:prodId', ProductController.getAProduct)
 
 module.exports = router;

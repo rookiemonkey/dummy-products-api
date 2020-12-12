@@ -12,7 +12,19 @@ const productSchema = new mongoose.Schema({
     },
     product_department: {
         type: String,
-        default: faker.commerce.department()
+        required: true
+    },
+    product_image_sm: {
+        type: String,
+        default: "https://via.placeholder.com/150?text='placeholder.com'"
+    },
+    product_image_md: {
+        type: String,
+        default: "https://via.placeholder.com/300?text='placeholder.com'"
+    },
+    product_image_lg: {
+        type: String,
+        default: "https://via.placeholder.com/600?text='thanks to placeholder.com'"
     },
     product_color: {
         type: String,

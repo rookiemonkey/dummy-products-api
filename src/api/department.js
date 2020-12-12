@@ -7,14 +7,22 @@ const Departments = require('../models/_department');
  * returns all the available product departments
  */
 const getAllDepartments = handleAsync(async (req, res, next) => {
-    const departmentArray = Departments.map(department => {
-        const [id, key] = Object.keys(department);
+    const departmentArray = new Array();
 
-        return {
+    for(let i = 1; i !== Departments.length; i++) {
+        const department = Departments[i];
+        const [id, key] = Object.keys(department);
+        const departmentId = department[id];
+        const departmentProductsNum = await Product
+            .find({ product_departmentId: departmentId })
+            .count()
+
+        departmentArray.push({
             department_name: key,
-            department_id: department[id]
-        }
-    })
+            department_id: departmentId,
+            department_numProducts: departmentProductsNum
+        })
+    }
 
     res.json({
         success: true,

@@ -29,6 +29,7 @@ Get A Product | ```/api/v1/products/{{product_id}}```
 
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
 - proper documentation website
+- pagination for some routes
 - require api keys as query string once we have doc site
 - dummy reviews for each dummy product (Review Model)
 - replace placeholder.com images with real images relative to product type

@@ -5,8 +5,8 @@
   "author": "Kevin Roi Basina",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
-    "dev": "clear && nodemon server.js"
+    "start": "node src/server.js",
+    "dev": "clear && nodemon src/server.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

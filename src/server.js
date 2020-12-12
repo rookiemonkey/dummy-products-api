@@ -2,15 +2,15 @@
 // DEPENDENCIES
 // =============================================
 require('dotenv').config();
-require('./src/models/__index')();
+require('./models/__index')();
 const express = require("express");
 const app = express();
 const morgan = require('morgan');
 const chalk = require('chalk');
 const bodyParser = require("body-parser");
-const api = require('./src/controllers/_routes');
-const toCatchErrors = require('./src/utilities/toCatchErrors');
-const ErrorReponse = require('./src/utilities/classError');
+const api = require('./controllers/_routes');
+const toCatchErrors = require('./utilities/toCatchErrors');
+const ErrorReponse = require('./utilities/classError');
 
 app.use(morgan('common'));
 app.use(bodyParser.urlencoded({ extended: true }));

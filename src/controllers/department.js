@@ -19,6 +19,7 @@ const getAllDepartments = handleAsync(async (req, res, next) => {
     res.json({
         success: true,
         datatype: 'ALL DEPARTMENTS',
+        numOfResults: departmentArray.length,
         data: departmentArray
     })
 })
@@ -34,6 +35,7 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
     res.json({
         success: true,
         datatype: "ALL DEPARTMENT'S PRODUCTS",
+        numOfResults: departmentProductsArray.length,
         data: departmentProductsArray
     })
 })

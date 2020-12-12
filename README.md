@@ -2,7 +2,9 @@
 # DUMMY PRODUCTS API
 ![Made With](https://img.shields.io/badge/Made%20with-Node.JS-68A063?style=for-the-badge&logo=Node.JS)
 
-This API aims to replicate the behaviour of various ecommerce websites. It provides dummy products with placeholder images with different sizes for the mean time. I made this because I cannot find any api that can provide such dummy products, though there are some like ebay dev, however, its such as hassle to request an access and read through all the long documentation since all I need is a fake product as a placeholder. Faker js would do, however, I'm looking for something that matches at least the name of the product and its type/department. and here you go!
+This API aims to replicate the behaviour of various ecommerce website data and this is best for prototyping such kind of website. It provides dummy products with placeholder images with different sizes. I made this because I cannot find any api that can provide such dummy products, though there are some like ebay dev, however, its such as hassle to request an access and read through all the long documentation since all I need is a fake product as a placeholder. Faker js would do, however, I'm looking for something that matches at least the name of the product and its type/department. and here you go!
+
+#### if you found this very useful, Please don't forget to star this repo! :tada: A rookie like me will highly appreaciate it
 
 ## ENDPOINT
 

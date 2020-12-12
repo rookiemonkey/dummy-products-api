@@ -1,12 +1,12 @@
 {
   "name": "dummy-products-api",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "author": "Kevin Roi Basina",
   "license": "MIT",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "clear && nodemon src/server.js"
+    "start": "node src/index.js",
+    "dev": "clear && nodemon src/index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

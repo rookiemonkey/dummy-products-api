@@ -8,7 +8,7 @@ const app = express();
 const morgan = require('morgan');
 const chalk = require('chalk');
 const bodyParser = require("body-parser");
-const api = require('./controllers/_routes');
+const api = require('./api/_routes');
 const toCatchErrors = require('./utilities/toCatchErrors');
 const ErrorReponse = require('./utilities/classError');
 
@@ -19,6 +19,7 @@ app.use(express.json())
 // mount the ErrorResponse object to every request
 app.use((req, res, next) => {
     res.withError = ErrorReponse;
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
     next();
 })
 

@@ -15,6 +15,24 @@ const processAnApiKey = toHandleAsync(async (req, res, next) => {
 
     const randomKeyEncrypted = toEncrypt(randomKey)
 
+    const foundApiKey = await ApiKey.findOne({ email })
+
+    // if email requested before
+    if (foundApiKey) {
+        foundApiKey.key = randomKeyEncrypted;
+        await foundApiKey.save()
+
+        await toEmail(email, 'Dummy Products API Key RESET', `
+            Here is your new api key: ${randomKey}
+        `)
+
+        return res.json({
+            success: true,
+            datatype: 'API KEY RESET. Existing User',
+        })
+    }
+
+    // if email requested first time
     await ApiKey.create({ key: randomKeyEncrypted, email });
 
     await toEmail(email, 'Dummy Products API Key', `

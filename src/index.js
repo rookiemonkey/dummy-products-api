@@ -31,6 +31,8 @@ app.use((req, res, next) => {
     next();
 })
 
+// exposing the public folder for public access. output of building docs
+app.use(express.static('public'))
 
 // =============================================
 // ROUTE: all prefixed with '/api/v1'

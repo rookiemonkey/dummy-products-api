@@ -20,11 +20,14 @@
     "helmet": "^4.2.0",
     "hpp": "^0.2.3",
     "mongoose": "^5.11.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.20",
+    "nodemailer": "^6.4.17",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6",
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.6"
   },
   "engines": {
     "node": "v14.15.1"

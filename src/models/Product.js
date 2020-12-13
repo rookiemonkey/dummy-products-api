@@ -4,19 +4,19 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
     product_type: {
         type: String,
-        required: true
+        required: [true, 'Product type is required']
     },
     product_name: {
         type: String,
-        required: true
+        required: [true, 'Product name is required']
     },
     product_department: {
         type: String,
-        required: true
+        required: [true, 'Product department is required']
     },
     product_departmentId: {
         type: String,
-        required: true
+        required: [true, 'Product department id is required']
     },
     product_image_sm: {
         type: String,

@@ -1,0 +1,18 @@
+footer {
+
+    h4, p, a {
+        text-align: center;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+        margin: $spacing_lg 0px;
+
+        a {
+            text-decoration: none;
+            margin: 0px $spacing_sm;
+        }
+    }
+
+}

@@ -1,0 +1,106 @@
+header {
+    width: 100vw;
+    height: 100vh; 
+    background-image: url(/assets/images/top-bg.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    nav,
+    section.header-contents {
+        padding: 0px $padingLR;
+    }
+
+    nav {
+        height: 15vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div.nav-brand {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        div.nav-options {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            a {
+                display: flex;
+                justify-content: center;
+                text-decoration: none;
+                list-style-type: none;
+                margin-left: $spacing_md;
+                border: 2.5px solid $color_font;
+                min-width: 140px;
+                padding: $spacing_sm $spacing_lg;
+                border-radius: 35px;
+                font-weight: 800;
+            }
+        }
+
+    }
+
+    section.header-contents {
+        height: 85vh;
+        display: flex;
+
+        div.header-content-image,
+        div.header-content-texts {
+            width: 100%;
+            height: 100%;
+        }
+
+        div.header-content-image {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        div.header-content-texts {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: $spacing_lg;
+                color: $color_primary;
+            }
+
+            p {
+                margin-top: $spacing_lg;
+                margin-bottom: $spacing_lg;
+                font-size: 1.5rem;
+            }
+
+            a {
+                text-decoration: none;
+
+                button {
+                    display: flex;
+                    justify-content: center;
+                    border: 2.5px solid $color_font;
+                    min-width: 140px;
+                    background-color: transparent;
+                    margin-top: $spacing_lg;
+                    padding: $spacing_sm $spacing_lg;
+                    border-radius: 35px;
+                    font-weight: 800;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "clear && nodemon src/index.js"
+    "server": "clear && nodemon src/index.js",
+    "sass": "clear && node-sass ./docs/assets/sass/_main.scss ./docs/assets/css/main.css"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -22,7 +23,8 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "node-sass": "^5.0.0"
   },
   "engines": {
     "node": "v14.15.1"

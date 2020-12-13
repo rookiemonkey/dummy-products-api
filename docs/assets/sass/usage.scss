@@ -1,0 +1,14 @@
+.container-basicusage {
+    
+    pre {
+        min-height: 100px;
+        border-radius: 15px;
+        background-color: $color_secondary;
+        display: flex;
+        align-items: center;
+    }
+
+    code {
+        font-weight: 800;
+    }
+}

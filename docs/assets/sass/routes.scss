@@ -1,0 +1,28 @@
+.container-departmentroutes,
+.container-productroutes {
+
+    ul {
+        margin-left: $spacing_lg+$spacing_lg;
+
+        li {
+            font-style: italic;
+            list-style-type: none;
+            
+        }
+
+        li:not(:last-child) {
+            margin-bottom: $spacing_lg;
+        }
+    }
+
+    p {
+        width: 100%;
+        font-weight: 800;
+        font-style: normal;
+        border-radius: 15px;
+        padding: $spacing_md;
+        background-color: $color_secondary;
+        color: $color_font;
+    }
+
+}

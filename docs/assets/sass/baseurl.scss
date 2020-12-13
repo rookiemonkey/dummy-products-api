@@ -1,0 +1,11 @@
+.container-baseurl {
+
+    p {
+        width: 100%;
+        font-weight: 800;
+        border-radius: 15px;
+        padding: $spacing_md;
+        background-color: $color_secondary;
+        color: $color_font;
+    }
+}

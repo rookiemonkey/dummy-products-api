@@ -1,0 +1,52 @@
+.container-form {
+    display: flex;
+    flex-direction: row;
+
+    form,
+    div.form-image {
+        width: 50%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: $spacing_lg;
+
+        h4, input, button {
+            margin-bottom: $spacing_lg;
+        }
+
+        input, button {
+            &:focus {
+                outline: none;
+            }
+        }
+
+        h4 {
+            font-size: 1.75rem;
+            color: $color_primary;
+        }
+
+        input {
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid $color_font;
+            padding: $spacing_md 0px;
+            color: $color_font;
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            width: max-content;
+            border: 2.5px solid $color_font;
+            min-width: 140px;
+            background-color: transparent;
+            margin-top: $spacing_lg;
+            padding: $spacing_sm $spacing_lg;
+            border-radius: 35px;
+            font-weight: 800;
+        }
+    }
+}

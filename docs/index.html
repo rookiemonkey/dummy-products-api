@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <title>Dummy Products API</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-brand">
+                <img src="/assets/images/logo.svg" alt="logo" />
+            </div>
+            <div class="nav-options">
+                <a href="#endpoints">Endpoints</a>
+                <a href="#about">About</a>
+            </div>
+        </nav>
+        <section class="header-contents">
+            <div class="header-content-image">
+                <img src="/assets/images/header.svg" />
+            </div>
+            <div class="header-content-texts">
+                <h1>Dummy Products API</h1>
+                <p>Provides dummy products to aid you in prototyping or developing e-commerce type of websites.</p>
+                <a href="#form"><button>Get Started</button></a>
+            </div>
+        </section>
+    </header>
+
+    <article class="container-about" id="about">
+        <h2>Why Dummy Products API?</h2>
+        <p>As someone who is willing to practice creating e-commerce websites, It is a struggle to find some dummy data
+            as a placeholder while on development stage. I've tried to sign up to all sorts of available e-commerce APIs
+            from known companies, however, some of them has complexity in implementation becuase their API is used also
+            in production, which includes authorization and such, and some, unfortunately, stopped accepting new
+            accounts to have access from their APIs.</p>
+        </br>
+        <p>I've tried using Faker js however, I'm not satisfied with the commerce method it offers though I have to
+            admit that faker js is really helpful in some scenarios.</p>
+        </br>
+        <p>This results to me, thinking of creating an API that mimics the structure of the data in a simpliest way
+            possible, and there goes Dummy Products API :D</p>
+    </article>
+
+    <article class="container-caveats">
+        <h2>Caveats</h2>
+        <ul>
+            <li>API key is needed (get yours below)</li>
+            <li>400 API calls per day</li>
+            <li>No Pagination (Soon)</li>
+            <li>No Filters (Soon)</li>
+        </ul>
+    </article>
+
+    <article class="container-baseurl" id="endpoints">
+        <h2>Base URL</h2>
+        <p>
+            https://dummyproducts-api.herokuapp.com
+        </p>
+    </article>
+
+    <article class="container-departmentroutes">
+        <h2>Department Routes</h2>
+        <ul>
+            <li>
+                Get all available departments from the dummy store
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/departments
+                </p>
+            </li>
+            <li>
+                Get all available products from a specific department id
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/departments/<span class="parameter">:department_id</span>
+                </p>
+            </li>
+            <li>
+                Get all top rated products from a specific department id (top 10, highest to lowest)
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/departments/<span class="parameter">:department_id</span>/toprated
+                </p>
+            </li>
+            <li>
+                Get all top sales products from a specific department id (top 10, highest to lowest)
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/departments/<span class="parameter">:department_id</span>/topsales
+                </p>
+            </li>
+        </ul>
+    </article>
+
+    <article class="container-productroutes">
+        <h2>Product Routes</h2>
+        <ul>
+            <li>
+                Get all available products from the dummy store
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/products
+                </p>
+            </li>
+            <li>
+                Get all top rated products (top 10, highest to lowest)
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/products/toprated
+                </p>
+            </li>
+            <li>
+                Get all top sales products (top 10, highest to lowest)
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/products/topsales
+                </p>
+            </li>
+            <li>
+                Get all informations of a product from a specific product id
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/products/<span class="parameter">:product_id</span>
+                </p>
+            </li>
+        </ul>
+    </article>
+
+    <article class="container-basicusage">
+        <h2>Basic Usage</h2>
+        <p>Form the url and append the api key as a query string with key 'apikey'</p>
+        <pre>
+            <code>
+                fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX')
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+            </code>
+        </pre>
+    </article>
+
+    <article class="container-form" id="form">
+        <form method="POST">
+            <h4>
+                Ready to start in prototyping your e-commerce website?
+                <br>
+                Get your API keys now!
+            </h4>
+            <input type="email" placeholder="Email Address">
+            <button>Submit</button>
+        </form>
+        <div class="form-image">
+            <img src="/assets/images/form.svg" />
+        </div>
+    </article>
+
+    <footer>
+        <h4> Made with
+            <span style='color: red; font-size: 1.5rem;'>♥</span>
+            by Kevin Roi Basina
+        </h4>
+
+        <p>
+            Suggestions, Contributions, and feature suggestions are very welcome.
+        </p>
+
+        <p>
+            Visit the
+            <a href="https://github.com/rookiemonkey/dummy-products-api">repository</a>
+            and feel free to check my todo list for contributions
+        </p>
+
+        <div>
+            <a href="https://github.com/rookiemonkey">
+                <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+            </a>
+            <a href="https://ph.linkedin.com/in/kevin-roi-rigor-basina-668136185">
+                <img
+                    src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+            </a>
+            <a href="https://www.facebook.com/kevinroibasina">
+                <img
+                    src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" />
+            </a>
+            <a href="https://www.instagram.com/timemachineni_roi/">
+                <img
+                    src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white">
+            </a>
+            <a href="https://twitter.com/tymmchineni_roi">
+                <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white">
+            </a>
+            <a href="mailto: kevinroirigorbasina@protonmail.com">
+                <img
+                    src="https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white">
+            </a>
+        </div>
+
+        <a href="https://storyset.com/business">Illustrations by Freepik Storyset</a>
+    </footer>
+
+</body>
+
+</html>

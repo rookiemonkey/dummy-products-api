@@ -11,7 +11,7 @@ const toEncrypt = require('../utilities/toEncrypt');
 const processAnApiKey = toHandleAsync(async (req, res, next) => {
     const { email } = req.body;
 
-    const randomKey = nanoid();
+    const randomKey = nanoid(12);
 
     const randomKeyEncrypted = toEncrypt(randomKey)
 

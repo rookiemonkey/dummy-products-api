@@ -1,11 +1,7 @@
 const { Router } = require('express');
 const router = Router({ mergeParams: true });
-const ApiKeyController = require('./key');
 const DepartmentController = require("./department");
 const ProductController = require("./product");
-
-// API KEY Controllers
-router.post('/key', ApiKeyController.processAnApiKey)
 
 // DEPARTMENT Controllers
 router.get('/departments', DepartmentController.getAllDepartments)

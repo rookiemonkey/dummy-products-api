@@ -83,22 +83,15 @@ header {
 
             a {
                 text-decoration: none;
-
-                button {
-                    display: flex;
-                    justify-content: center;
-                    border: 2.5px solid $color_font;
-                    min-width: 140px;
-                    background-color: transparent;
-                    margin-top: $spacing_lg;
-                    padding: $spacing_sm $spacing_lg;
-                    border-radius: 35px;
-                    font-weight: 800;
-
-                    &:focus {
-                        outline: none;
-                    }
-                }
+                display: flex;
+                justify-content: center;
+                border: 2.5px solid $color_font;
+                width: 175px;
+                background-color: transparent;
+                margin-top: $spacing_lg;
+                padding: $spacing_sm $spacing_lg;
+                border-radius: 35px;
+                font-weight: 800;
             }
         }
     }

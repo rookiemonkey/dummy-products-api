@@ -127,19 +127,16 @@ header {
         margin-bottom: 20px;
         font-size: 1.5rem; }
       header section.header-contents div.header-content-texts a {
-        text-decoration: none; }
-        header section.header-contents div.header-content-texts a button {
-          display: flex;
-          justify-content: center;
-          border: 2.5px solid rgba(0, 0, 0, 0.8);
-          min-width: 140px;
-          background-color: transparent;
-          margin-top: 20px;
-          padding: 8px 20px;
-          border-radius: 35px;
-          font-weight: 800; }
-          header section.header-contents div.header-content-texts a button:focus {
-            outline: none; }
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        border: 2.5px solid rgba(0, 0, 0, 0.8);
+        width: 175px;
+        background-color: transparent;
+        margin-top: 20px;
+        padding: 8px 20px;
+        border-radius: 35px;
+        font-weight: 800; }
 
 .container-about p {
   text-align: justify; }
@@ -154,7 +151,7 @@ header {
   font-weight: 800;
   border-radius: 15px;
   padding: 12px;
-  background-color: rgba(122, 170, 253, 0.5);
+  background-color: #FFCCBC;
   color: rgba(0, 0, 0, 0.8); }
 
 .container-departmentroutes ul,
@@ -175,13 +172,13 @@ header {
   font-style: normal;
   border-radius: 15px;
   padding: 12px;
-  background-color: rgba(122, 170, 253, 0.5);
+  background-color: #FFCCBC;
   color: rgba(0, 0, 0, 0.8); }
 
 .container-basicusage pre {
   min-height: 100px;
   border-radius: 15px;
-  background-color: rgba(122, 170, 253, 0.5);
+  background-color: #FFCCBC;
   display: flex;
   align-items: center; }
 
@@ -192,8 +189,24 @@ header {
   display: flex;
   flex-direction: row; }
   .container-form form,
-  .container-form div.form-image {
+  .container-form div.form-image,
+  .container-form div.form-dynamic {
     width: 50%; }
+  .container-form div.form-dynamic {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px; }
+    .container-form div.form-dynamic svg {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px; }
+    .container-form div.form-dynamic img {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 20px; }
+    .container-form div.form-dynamic p {
+      text-align: center; }
   .container-form form {
     display: flex;
     flex-direction: column;
@@ -222,7 +235,8 @@ header {
       margin-top: 20px;
       padding: 8px 20px;
       border-radius: 35px;
-      font-weight: 800; }
+      font-weight: 800;
+      cursor: pointer; }
 
 footer h4, footer p, footer a {
   text-align: center; }

@@ -29,6 +29,7 @@ const processAnApiKey = toHandleAsync(async (req, res, next) => {
         return res.json({
             success: true,
             datatype: 'API KEY RESET. Existing User',
+            message: 'Existing user found. Successfully reset your api key and sent it to your email'
         })
     }
 
@@ -42,6 +43,7 @@ const processAnApiKey = toHandleAsync(async (req, res, next) => {
     res.json({
         success: true,
         datatype: 'API KEY REQUEST',
+        message: 'Successfully created your api key and sent it to your email'
     })
 })
 

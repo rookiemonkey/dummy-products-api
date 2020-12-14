@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="/assets/css/main.css">
     <title>Dummy Products API</title>
 </head>
@@ -26,7 +27,7 @@
             <div class="header-content-texts">
                 <h1>Dummy Products API</h1>
                 <p>Provides dummy products to aid you in prototyping or developing e-commerce type of websites.</p>
-                <a href="#form"><button>Get Started</button></a>
+                <a href="#form">Get Started</a>
             </div>
         </section>
     </header>
@@ -144,15 +145,45 @@
     </article>
 
     <article class="container-form" id="form">
-        <form method="POST">
+        <form method="POST" id="form-apikey">
             <h4>
                 Ready to start in prototyping your e-commerce website?
                 <br>
-                Get your API keys now!
+                Get your API key now!
             </h4>
-            <input type="email" placeholder="Email Address">
+            <input type="email" placeholder="Email Address" id="email" autocomplete="off">
             <button>Submit</button>
         </form>
+
+        <!-- LOADER -->
+        <div class="form-dynamic" id="container-loader" style="display: none;">
+            <svg version="1.1" id="L3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                <circle fill="none" stroke="#fff" stroke-width="4" cx="50" cy="50" r="44" style="opacity:0.5;" />
+                <circle fill="#fff" stroke="#00887A" stroke-width="3" cx="8" cy="54" r="6">
+                    <animateTransform attributeName="transform" dur="2s" type="rotate" from="0 50 48" to="360 50 52"
+                        repeatCount="indefinite" />
+                </circle>
+            </svg>
+            <small>Please wait...</small>
+        </div>
+
+        <!-- SENT SUCCESS -->
+        <div class="form-dynamic" id="container-success" style="display: none;">
+            <img src="/assets/images/sent-success.svg" />
+            <p id="success-message">
+                Successfully created/reset your API Key <br> and sent to your email
+            </p>
+        </div>
+
+        <!-- SENT FAILED -->
+        <div class="form-dynamic" id="container-failed" style="display: none;">
+            <img src="/assets/images/sent-failed.svg" />
+            <p id="failed-message">
+                Something went wrong. <br> Remember that you can only <br> request an API key once a day
+            </p>
+        </div>
+
         <div class="form-image">
             <img src="/assets/images/form.svg" />
         </div>
@@ -203,5 +234,7 @@
     </footer>
 
 </body>
+
+<script src="/assets/js/main.js"></script>
 
 </html>

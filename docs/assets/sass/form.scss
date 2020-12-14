@@ -3,8 +3,32 @@
     flex-direction: row;
 
     form,
-    div.form-image {
+    div.form-image,
+    div.form-dynamic {
         width: 50%;
+    }
+
+    div.form-dynamic {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px $spacing_lg;
+
+        svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: $spacing_lg;
+        }
+
+        img {
+            width: 250px;
+            height: 250px;
+            margin-bottom: $spacing_lg;
+        }
+
+        p {
+            text-align: center;
+        }
     }
 
     form {
@@ -47,6 +71,7 @@
             padding: $spacing_sm $spacing_lg;
             border-radius: 35px;
             font-weight: 800;
+            cursor: pointer;
         }
     }
 }

@@ -11,7 +11,7 @@ const limitMainRoutes = rateLimit({
 // limit for apiKeyRequest
 const limitApiKeyRoute = rateLimit({
     windowMs: 24 * 60 * 60 * 1000,  // 24 hours
-    max: 5,                         // limit of each IP
+    max: 1,                       // limit of each IP
     message: "Uh oh! You have reached the maximum api call (1 API Key request per day)",
     headers: true
 });

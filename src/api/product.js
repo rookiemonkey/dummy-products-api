@@ -62,6 +62,8 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
 const getAProduct = handleAsync(async (req, res, next) => {
     const foundProduct = await Product.findById(req.params.prodId);
 
+    if (!foundProduct) throw new res.withError('Product not found', 404)
+
     res.json({
         success: true,
         datatype: 'A PRODUCT',

@@ -69,6 +69,21 @@ footer {
   color: rgba(0, 0, 0, 0.8);
   font-weight: 400; }
 
+.response {
+  float: right;
+  cursor: pointer;
+  font-size: x-small;
+  position: relative;
+  top: 5px; }
+
+.route-response {
+  margin-top: 12px;
+  padding-top: 12px;
+  background-color: rgba(122, 170, 253, 0.5);
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  overflow: auto; }
+
 header {
   width: 100vw;
   height: 100vh;

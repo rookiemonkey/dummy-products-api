@@ -72,28 +72,139 @@
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/departments
+                    <span class="response" data-action="alldepartments">See Response</span>
                 </p>
+                <pre class="route-response" data-view="alldepartments" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "ALL DEPARTMENTS",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                            "department_name": "Appliances",
+                            "department_id": "appliances",
+                            "department_numProducts": 37
+                        },
+                        {
+                            "department_name": "Health & Beauty",
+                            "department_id": "healthandbeauty",
+                            "department_numProducts": 48
+                        }
+
+                        ... // more departments
+                }
+                </pre>
             </li>
             <li>
                 Get all available products from a specific department id
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/departments/<span class="parameter">:department_id</span>
+                    <span class="response" data-action="alldepartmentproducts">See Response</span>
                 </p>
+                <pre class="route-response" data-view="alldepartmentproducts" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "ALL DEPARTMENT'S PRODUCTS",
+                    "numOfResults": 48,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5237",
+                        "product_department": "Health & Beauty",
+                        "product_departmentId": "healthandbeauty",
+                        "product_type": "Make-up",
+                        "product_name": "Rustic Make-up",
+                        "product_ratings": 3,
+                        "product_sales": 1252,
+                        "__v": 0
+                        },
+                
+                        // more products of a department
+                    ]
+                }
+                </pre>
             </li>
             <li>
                 Get all top rated products from a specific department id (top 10, highest to lowest)
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/departments/<span class="parameter">:department_id</span>/toprated
+                    <span class="response" data-action="alltoprateddepartmentproducts">See Response</span>
                 </p>
+                <pre class="route-response" data-view="alltoprateddepartmentproducts" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "ALL DEPARTMENT'S TOP RATED PRODUCTS. Starting from the highest rating",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5241",
+                        "product_department": "Automotive",
+                        "product_departmentId": "automotive",
+                        "product_type": "Flushes",
+                        "product_name": "Awesome Flushes",
+                        "product_ratings": 5,
+                        "product_sales": 1081,
+                        "__v": 0
+                        },
+
+                        ... // 9 more top rated products of a department
+                    ]
+                }
+                </pre>
             </li>
             <li>
                 Get all top sales products from a specific department id (top 10, highest to lowest)
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/departments/<span class="parameter">:department_id</span>/topsales
+                    <span class="response" data-action="alltopsalesdepartmentproducts">See Response</span>
                 </p>
+                <pre class="route-response" data-view="alltopsalesdepartmentproducts" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "ALL DEPARTMENT'S TOP SALES PRODUCTS. Starting from the highest sales",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5246",
+                        "product_department": "Automotive",
+                        "product_departmentId": "automotive",
+                        "product_type": "Small Vacuum",
+                        "product_name": "Incredible Small Vacuum",
+                        "product_ratings": 1,
+                        "product_sales": 1442,
+                        "__v": 0
+                        },
+
+                        ... // 9 more top sales products of a department
+                    ]
+                }
+                </pre>
             </li>
         </ul>
     </article>
@@ -106,28 +217,143 @@
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/products
+                    <span class="response" data-action="allproducts">See Response</span>
                 </p>
+                <pre class="route-response" data-view="allproducts" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "ALL PRODUCTS",
+                    "numOfResults": 501,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5234",
+                        "product_department": "Appliances",
+                        "product_departmentId": "appliances",
+                        "product_type": "Mop",
+                        "product_name": "Handmade Mop",
+                        "product_ratings": 4,
+                        "product_sales": 945,
+                        "__v": 0
+                        },
+
+                        ... // more products
+                    ]
+                }
+                </pre>
             </li>
             <li>
                 Get all top rated products (top 10, highest to lowest)
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/products/toprated
+                    <span class="response" data-action="alltopratedproducts">See Response</span>
                 </p>
+                <pre class="route-response" data-view="alltopratedproducts" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "ALL TOP RATED PRODUCTS. Starting from the highest rating",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5241",
+                        "product_department": "Automotive",
+                        "product_departmentId": "automotive",
+                        "product_type": "Flushes",
+                        "product_name": "Awesome Flushes",
+                        "product_ratings": 5,
+                        "product_sales": 1081,
+                        "__v": 0
+                        },
+
+                        ... // 9 more top rated products
+                    ]
+                }
+                </pre>
             </li>
             <li>
                 Get all top sales products (top 10, highest to lowest)
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/products/topsales
+                    <span class="response" data-action="alltopsalesproducts">See Response</span>
                 </p>
+                <pre class="route-response" data-view="alltopsalesproducts" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "ALL TOP SALES PRODUCTS. Starting from the highest sales",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c755ce98f91a871e5374",
+                        "product_department": "Groceries",
+                        "product_departmentId": "groceries",
+                        "product_type": "Tea",
+                        "product_name": "Gorgeous Tea",
+                        "product_ratings": 5,
+                        "product_sales": 1499,
+                        "__v": 0
+                        },
+
+                        ... // 9 more top sales products
+                    ]
+                }
+                </pre>
             </li>
             <li>
                 Get all informations of a product from a specific product id
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/products/<span class="parameter">:product_id</span>
+                    <span class="response" data-action="aproduct">See Response</span>
                 </p>
+                <pre class="route-response" data-view="aproduct" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "A PRODUCT",
+                    "data": {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c755ce98f91a871e53b5",
+                        "product_department": "Accessories",
+                        "product_departmentId": "accessories",
+                        "product_type": "bracelet",
+                        "product_name": "Sleek bracelet",
+                        "product_ratings": 0,
+                        "product_sales": 1490,
+                        "__v": 0
+                    }
+                }
+                </pre>
             </li>
         </ul>
     </article>

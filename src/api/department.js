@@ -9,7 +9,7 @@ const Departments = require('../models/_department');
 const getAllDepartments = handleAsync(async (req, res, next) => {
     const departmentArray = new Array();
 
-    for(let i = 1; i !== Departments.length; i++) {
+    for (let i = 1; i !== Departments.length; i++) {
         const department = Departments[i];
         const [id, key] = Object.keys(department);
         const departmentId = department[id];
@@ -55,7 +55,7 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
  */
 const getAllTopRated = handleAsync(async (req, res, next) => {
     const product_departmentId = req.params.deptId
-    const departmentTopRated= await Product
+    const departmentTopRated = await Product
         .find({ product_departmentId, product_ratings: { $gte: 4, $lte: 5 } })
         .sort({ product_ratings: 'descending' })
         .limit(10);

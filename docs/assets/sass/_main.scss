@@ -82,6 +82,23 @@ footer {
     font-weight: 400;
 }
 
+.response {
+    float: right;
+    cursor: pointer;
+    font-size: x-small;
+    position: relative;
+    top: 5px;
+}
+
+.route-response {
+    margin-top: $spacing_md;
+    padding-top: $spacing_md;
+    background-color: $color_secondary;
+    color: $color_font;
+    border-radius: 15px;
+    overflow: auto;
+}
+
 @import './header.scss';
 @import './about.scss';
 @import './caveats.scss';

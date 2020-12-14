@@ -1,3 +1,6 @@
+const baseurl = 'http://localhost:5050';
+const btnResponse = document.querySelectorAll('.response');
+const viewResponse = document.querySelectorAll('.route-response');
 const form = document.getElementById('form-apikey');
 const formLoader = document.getElementById('container-loader');
 const formSuccess = document.getElementById('container-success');
@@ -6,6 +9,21 @@ const displaySuccessMsg = document.getElementById('success-message');
 const displayFailedMsg = document.getElementById('failed-message');
 const inputEmail = document.getElementById('email');
 
+// onlick of viewing a response
+btnResponse.forEach(btn => {
+    btn.addEventListener('click', function (event) {
+        const { action } = event.target.dataset;
+
+        viewResponse.forEach(responseView => {
+            const { view } = responseView.dataset;
+
+            action === view
+                ? responseView.style.display = 'block'
+                : responseView.style.display = 'none'
+        })
+    })
+})
+
 // form onsubmit to get an apikey
 form.addEventListener('submit', async function (event) {
     try {
@@ -13,7 +31,7 @@ form.addEventListener('submit', async function (event) {
         form.style.display = 'none';
         formLoader.style.display = 'flex';
 
-        const raw = await fetch('http://localhost:5050/api/key', {
+        const raw = await fetch(`${baseurl}/api/key`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

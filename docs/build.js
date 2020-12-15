@@ -45,7 +45,7 @@ const paths = {
 
 
 // delete the old public version
-const clean = () => del(['../public']);
+const clean = () => del(['../public'], {force:true});
 
 
 

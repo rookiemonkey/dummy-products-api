@@ -96,6 +96,18 @@ footer {
     margin: 60px 0px;
     padding: 0px 50px; } }
 
+@media screen and (max-width: 375px) {
+  .container-about,
+  .container-caveats,
+  .container-baseurl,
+  .container-departmentroutes,
+  .container-productroutes,
+  .container-basicusage,
+  .container-form,
+  footer {
+    margin: 60px 0px;
+    padding: 0px 20px; } }
+
 header {
   width: 100vw;
   height: 100vh;
@@ -182,6 +194,20 @@ header {
   header section.header-contents div.header-content-texts a {
     width: 300px; } }
 
+@media screen and (max-width: 375px) {
+  header nav,
+  header section.header-contents {
+    padding: 0px 20px; }
+  header nav div.nav-options {
+    display: none; }
+  header section.header-contents div.header-content-texts h1 {
+    font-size: 2.5rem; }
+  header section.header-contents div.header-content-texts p {
+    font-size: 1.5rem; }
+  header section.header-contents div.header-content-texts a {
+    font-size: 1rem;
+    width: 175px; } }
+
 .container-about p {
   text-align: justify;
   margin-bottom: 20px; }
@@ -219,6 +245,19 @@ header {
   padding: 12px;
   background-color: #ffbca7;
   color: rgba(0, 0, 0, 0.8); }
+
+@media screen and (max-width: 375px) {
+  .container-departmentroutes ul li p,
+  .container-productroutes ul li p {
+    overflow: auto; }
+    .container-departmentroutes ul li p span.method,
+    .container-productroutes ul li p span.method {
+      margin-bottom: 8px;
+      display: block;
+      width: 47px; }
+    .container-departmentroutes ul li p span.response,
+    .container-productroutes ul li p span.response {
+      display: none; } }
 
 .container-basicusage pre {
   min-height: 100px;

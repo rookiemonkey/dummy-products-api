@@ -115,6 +115,22 @@ footer {
     }
 }
 
+@media screen and (max-width: 375px) { // MOBILE
+    $padingLR: 20px;
+
+    .container-about,
+    .container-caveats,
+    .container-baseurl,
+    .container-departmentroutes,
+    .container-productroutes,
+    .container-basicusage,
+    .container-form,
+    footer {
+        margin: ($spacing_lg+$spacing_lg+$spacing_lg) 0px;
+        padding: 0px $padingLR; 
+    }
+}
+
 @import './header.scss';
 @import './about.scss';
 @import './caveats.scss';

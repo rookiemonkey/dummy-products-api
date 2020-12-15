@@ -26,3 +26,27 @@
     }
 
 }
+
+@media screen and (max-width: 375px) { // MOBILE
+    .container-departmentroutes,
+    .container-productroutes {
+
+        ul {
+            li {
+                p {
+                    overflow: auto;
+
+                    span.method {
+                        margin-bottom: $spacing_sm;
+                        display: block;
+                        width: 47px;
+                    }
+
+                    span.response {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

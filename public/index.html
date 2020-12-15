@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/assets/images/favicon.png><link rel=stylesheet href=/assets/css/main.css><title>Dummy Products API</title></head><body><header><nav><div class=nav-brand><img src=/assets/images/logo.svg alt=logo></div><div class=nav-options><a href=#endpoints>Endpoints</a> <a href=#about>About</a></div></nav><section class=header-contents><div class=header-content-image><img src=/assets/images/header.svg></div><div class=header-content-texts><h1>Dummy Products API</h1><p>Provides dummy products to aid you in prototyping or developing e-commerce type of websites.</p><a href=#form>Get Started</a></div></section></header><article class=container-about id=about><h2>Why Dummy Products API?</h2><p>As someone who is willing to practice creating e-commerce websites, It is a struggle to find some dummy data as a placeholder while on development stage. I've tried to sign up to all sorts of available e-commerce APIs from known companies, however, some of them has complexity in implementation becuase their API is used also in production, which includes authorization and such, and some, unfortunately, stopped accepting new accounts to have access from their APIs.</p><br><p>I've tried using Faker js however, I'm not satisfied with the commerce method it offers though I have to admit that faker js is really helpful in some scenarios.</p><br><p>This results to me, thinking of creating an API that mimics the structure of the data in a simpliest way possible, and there goes Dummy Products API :D</p></article><article class=container-caveats><h2>Caveats</h2><ul><li>API key is needed (get yours below)</li><li>400 API calls per day</li><li>No Pagination (Soon)</li><li>No Filters (Soon)</li></ul></article><article class=container-baseurl id=endpoints><h2>Base URL</h2><p>https://dummyproducts-api.herokuapp.com</p></article><article class=container-departmentroutes><h2>Department Routes</h2><ul><li>Get all available departments from the dummy store<p><span class=method>&nbsp; GET &nbsp;</span> /api/v1/departments <span class=response data-action=alldepartments>See Response</span></p><pre class=route-response data-view=alldepartments style=display:none>
+                {
+                    "success": true,
+                    "datatype": "ALL DEPARTMENTS",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                            "department_name": "Appliances",
+                            "department_id": "appliances",
+                            "department_numProducts": 37
+                        },
+                        {
+                            "department_name": "Health & Beauty",
+                            "department_id": "healthandbeauty",
+                            "department_numProducts": 48
+                        }
+
+                        ... // more departments
+                }
+                </pre></li><li>Get all available products from a specific department id<p><span class=method>&nbsp; GET &nbsp;</span> /api/v1/departments/<span class=parameter>:department_id</span> <span class=response data-action=alldepartmentproducts>See Response</span></p><pre class=route-response data-view=alldepartmentproducts style=display:none>
+                {
+                    "success": true,
+                    "datatype": "ALL DEPARTMENT'S PRODUCTS",
+                    "numOfResults": 48,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5237",
+                        "product_department": "Health & Beauty",
+                        "product_departmentId": "healthandbeauty",
+                        "product_type": "Make-up",
+                        "product_name": "Rustic Make-up",
+                        "product_ratings": 3,
+                        "product_sales": 1252,
+                        "__v": 0
+                        },
+                
+                        // more products of a department
+                    ]
+                }
+                </pre></li><li>Get all top rated products from a specific department id (top 10, highest to lowest)<p><span class=method>&nbsp; GET &nbsp;</span> /api/v1/departments/<span class=parameter>:department_id</span>/toprated <span class=response data-action=alltoprateddepartmentproducts>See Response</span></p><pre class=route-response data-view=alltoprateddepartmentproducts style=display:none>
+                {
+                    "success": true,
+                    "datatype": "ALL DEPARTMENT'S TOP RATED PRODUCTS. Starting from the highest rating",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5241",
+                        "product_department": "Automotive",
+                        "product_departmentId": "automotive",
+                        "product_type": "Flushes",
+                        "product_name": "Awesome Flushes",
+                        "product_ratings": 5,
+                        "product_sales": 1081,
+                        "__v": 0
+                        },
+
+                        ... // 9 more top rated products of a department
+                    ]
+                }
+                </pre></li><li>Get all top sales products from a specific department id (top 10, highest to lowest)<p><span class=method>&nbsp; GET &nbsp;</span> /api/v1/departments/<span class=parameter>:department_id</span>/topsales <span class=response data-action=alltopsalesdepartmentproducts>See Response</span></p><pre class=route-response data-view=alltopsalesdepartmentproducts style=display:none>
+                {
+                    "success": true,
+                    "datatype": "ALL DEPARTMENT'S TOP SALES PRODUCTS. Starting from the highest sales",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5246",
+                        "product_department": "Automotive",
+                        "product_departmentId": "automotive",
+                        "product_type": "Small Vacuum",
+                        "product_name": "Incredible Small Vacuum",
+                        "product_ratings": 1,
+                        "product_sales": 1442,
+                        "__v": 0
+                        },
+
+                        ... // 9 more top sales products of a department
+                    ]
+                }
+                </pre></li></ul></article><article class=container-productroutes><h2>Product Routes</h2><ul><li>Get all available products from the dummy store<p><span class=method>&nbsp; GET &nbsp;</span> /api/v1/products <span class=response data-action=allproducts>See Response</span></p><pre class=route-response data-view=allproducts style=display:none>
+                {
+                    "success": true,
+                    "datatype": "ALL PRODUCTS",
+                    "numOfResults": 501,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5234",
+                        "product_department": "Appliances",
+                        "product_departmentId": "appliances",
+                        "product_type": "Mop",
+                        "product_name": "Handmade Mop",
+                        "product_ratings": 4,
+                        "product_sales": 945,
+                        "__v": 0
+                        },
+
+                        ... // more products
+                    ]
+                }
+                </pre></li><li>Get all top rated products (top 10, highest to lowest)<p><span class=method>&nbsp; GET &nbsp;</span> /api/v1/products/toprated <span class=response data-action=alltopratedproducts>See Response</span></p><pre class=route-response data-view=alltopratedproducts style=display:none>
+                {
+                    "success": true,
+                    "datatype": "ALL TOP RATED PRODUCTS. Starting from the highest rating",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c754ce98f91a871e5241",
+                        "product_department": "Automotive",
+                        "product_departmentId": "automotive",
+                        "product_type": "Flushes",
+                        "product_name": "Awesome Flushes",
+                        "product_ratings": 5,
+                        "product_sales": 1081,
+                        "__v": 0
+                        },
+
+                        ... // 9 more top rated products
+                    ]
+                }
+                </pre></li><li>Get all top sales products (top 10, highest to lowest)<p><span class=method>&nbsp; GET &nbsp;</span> /api/v1/products/topsales <span class=response data-action=alltopsalesproducts>See Response</span></p><pre class=route-response data-view=alltopsalesproducts style=display:none>
+                {
+                    "success": true,
+                    "datatype": "ALL TOP SALES PRODUCTS. Starting from the highest sales",
+                    "numOfResults": 10,
+                    "data": [
+                        {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c755ce98f91a871e5374",
+                        "product_department": "Groceries",
+                        "product_departmentId": "groceries",
+                        "product_type": "Tea",
+                        "product_name": "Gorgeous Tea",
+                        "product_ratings": 5,
+                        "product_sales": 1499,
+                        "__v": 0
+                        },
+
+                        ... // 9 more top sales products
+                    ]
+                }
+                </pre></li><li>Get all informations of a product from a specific product id<p><span class=method>&nbsp; GET &nbsp;</span> /api/v1/products/<span class=parameter>:product_id</span> <span class=response data-action=aproduct>See Response</span></p><pre class=route-response data-view=aproduct style=display:none>
+                {
+                    "success": true,
+                    "datatype": "A PRODUCT",
+                    "data": {
+                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
+                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
+                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
+                        "product_color": "purple",
+                        "product_price": 786,
+                        "product_material": "Fresh",
+                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
+                        make you stand apart",
+                        "_id": "5fd4c755ce98f91a871e53b5",
+                        "product_department": "Accessories",
+                        "product_departmentId": "accessories",
+                        "product_type": "bracelet",
+                        "product_name": "Sleek bracelet",
+                        "product_ratings": 0,
+                        "product_sales": 1490,
+                        "__v": 0
+                    }
+                }
+                </pre></li></ul></article><article class=container-basicusage><h2>Basic Usage</h2><p>Form the url and append the api key as a query string with key 'apikey'</p><pre>
+        fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX')
+            .then(res => res.json())
+            .then(data => console.log(data))
+        </pre></article><article class=container-form id=form><form method=POST id=form-apikey><h4>Start prototyping now!<br>Grab your API key from your email!</h4><input type=email placeholder="Email Address" id=email autocomplete=off> <button>Submit</button></form><div class=form-dynamic id=container-loader style=display:none><svg version=1.1 id=L3 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink x=0px y=0px viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space=preserve><circle fill=none stroke=#fff stroke-width=4 cx=50 cy=50 r=44 style=opacity:.5 /><circle fill=#fff stroke=#00887A stroke-width=3 cx=8 cy=54 r=6><animateTransform attributeName=transform dur=2s type=rotate from="0 50 48" to="360 50 52" repeatCount=indefinite /></circle></svg> <small>Please wait...</small></div><div class=form-dynamic id=container-success style=display:none><img src=/assets/images/sent-success.svg><p id=success-message>Successfully created/reset your API Key<br>and sent to your email</p></div><div class=form-dynamic id=container-failed style=display:none><img src=/assets/images/sent-failed.svg><p id=failed-message>Something went wrong.<br>Remember that you can only<br>request an API key once a day</p></div><div class=form-image><img src=/assets/images/form.svg></div></article><footer><h4>Made with <span style=color:red;font-size:1.5rem>♥</span> by Kevin Roi Basina</h4><p>Suggestions, Contributions, and feature suggestions are very welcome.</p><p>Visit the <a href=https://github.com/rookiemonkey/dummy-products-api>repository</a> and feel free to check my todo list for contributions</p><div><a href=https://github.com/rookiemonkey><img src=/assets/images/social-github.svg> </a><a href=https://ph.linkedin.com/in/kevin-roi-rigor-basina-668136185><img src=/assets/images/social-linkedin.svg> </a><a href=https://www.facebook.com/kevinroibasina><img src=/assets/images/social-facebook.svg> </a><a href=https://www.instagram.com/timemachineni_roi/ ><img src=/assets/images/social-instagram.svg> </a><a href=https://twitter.com/tymmchineni_roi><img src=/assets/images/social-twitter.svg> </a><a href="mailto: kevinroirigorbasina@protonmail.com"><img src=/assets/images/social-protonmail.svg></a></div><a href=https://storyset.com/business>Illustrations by Freepik Storyset</a> <a href=https://placeholder.com/ >Placeholder image by Placeholder.com</a></footer></body><script src=/assets/js/main.js></script></html>

@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "clear && nodemon src/index.js"
+    "server": "clear && nodemon src/index.js",
+    "docs:sass": "clear && node-sass ./docs/assets/sass/_main.scss ./docs/assets/css/main.css",
+    "docs:build": "clear && yarn run docs:sass && gulp -f ./docs/build.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -19,9 +21,29 @@
     "helmet": "^4.2.0",
     "hpp": "^0.2.3",
     "mongoose": "^5.11.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.20",
+    "nodemailer": "^6.4.17",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-terser": "^1.2.0",
+    "node-sass": "^5.0.0",
     "nodemon": "^2.0.6"
   },
   "engines": {

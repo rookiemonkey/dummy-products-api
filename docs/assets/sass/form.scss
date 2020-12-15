@@ -1,0 +1,91 @@
+.container-form {
+    display: flex;
+    flex-direction: row;
+
+    form,
+    div.form-image,
+    div.form-dynamic {
+        width: 50%;
+    }
+
+    div.form-dynamic {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px $spacing_lg;
+
+        svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: $spacing_lg;
+        }
+
+        img {
+            width: 250px;
+            height: 250px;
+            margin-bottom: $spacing_lg;
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: $spacing_lg;
+
+        h4, input, button {
+            margin-bottom: $spacing_lg;
+        }
+
+        input, button {
+            &:focus {
+                outline: none;
+            }
+        }
+
+        h4 {
+            font-size: 1.75rem;
+            color: $color_primary;
+        }
+
+        input {
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid $color_font;
+            padding: $spacing_md 0px;
+            color: $color_font;
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            width: max-content;
+            border: 2.5px solid $color_font;
+            min-width: 140px;
+            background-color: transparent;
+            margin-top: $spacing_lg;
+            padding: $spacing_sm $spacing_lg;
+            border-radius: 35px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) { // IPAD
+    .container-form  {
+        div.form-image {
+            display: none;
+        }
+
+        form,
+        div.form-dynamic  {
+            width: 100%;
+            height: 400px;
+        }
+    }
+}

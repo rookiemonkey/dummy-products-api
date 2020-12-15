@@ -13,6 +13,8 @@ const hpp = require('hpp');
 const limiter = require('./utilities/apiLimit');
 const bodyParser = require("body-parser");
 const api = require('./api/_routes');
+const ApiKeyController = require('./api/key');
+const toCheckApiKey = require('./middlewares/checkApiKey');
 const toCatchErrors = require('./utilities/toCatchErrors');
 const ErrorReponse = require('./utilities/classError');
 
@@ -31,11 +33,16 @@ app.use((req, res, next) => {
     next();
 })
 
+// exposing the public folder for public access. output of building docs
+app.use(express.static('public'))
+
+
 
 // =============================================
-// ROUTE: all prefixed with '/api/v1'
+// ROUTES: all prefixed with '/api/v1' except processing an API Key
 // =============================================
-app.use('/api/v1', limiter, api)
+app.use('/api/key', limiter.limitApiKeyRoute, ApiKeyController.processAnApiKey)
+app.use('/api/v1', toCheckApiKey, limiter.limitMainRoutes, api)
 
 
 

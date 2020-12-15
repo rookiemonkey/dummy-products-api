@@ -25,6 +25,7 @@ const toCatchErrors = (error, req, res, next) => {
         case error.code === 11000:
             errorResponse.message = `Resource already exists`;
             errorResponse.status = 400;
+            break;
 
         // Mongo Validation Error
         case error.name === 'ValidationError':

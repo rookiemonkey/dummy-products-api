@@ -1,0 +1,141 @@
+$color_base: #D3E3Fc;
+$color_primary: #007065;
+$color_secondary: rgba(122, 170, 253, 0.5);
+$color_tertiary: #ffbca7;
+$color_font: rgba(0,0,0, 0.80);
+$padingLR: 200px;
+$spacing_sm: 8px;
+$spacing_md: 12px;
+$spacing_lg: 20px;
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/poppins-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/assets/fonts/poppins-800.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    color: $color_font;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: $color_base;
+    width: 100vw; 
+    background-image: url(/assets/images/bottom-bg.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+}
+
+.container-about,
+.container-caveats,
+.container-baseurl,
+.container-departmentroutes,
+.container-productroutes,
+.container-basicusage,
+.container-form,
+footer {
+    width: 100vw;
+    margin: ($spacing_lg+$spacing_lg+$spacing_lg) 0px;
+    padding: 0px $padingLR; 
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        color: $color_primary;
+        font-size: 2rem;
+        margin-bottom: $spacing_md;
+    }
+}
+
+.method {
+    color: $color_base;
+    border-radius: 15px;
+    background-color: green;
+    margin-right: $spacing_lg;
+}
+
+.parameter {
+    color: $color_font;
+    font-weight: 400;
+}
+
+.response {
+    float: right;
+    cursor: pointer;
+    font-size: x-small;
+    position: relative;
+    top: 5px;
+}
+
+.route-response {
+    margin-top: $spacing_md;
+    padding-top: $spacing_md;
+    background-color: $color_secondary;
+    color: $color_font;
+    border-radius: 15px;
+    overflow: auto;
+}
+
+@media screen and (max-width: 768px) { // IPAD
+    $padingLR: 50px;
+
+    .container-about,
+    .container-caveats,
+    .container-baseurl,
+    .container-departmentroutes,
+    .container-productroutes,
+    .container-basicusage,
+    .container-form,
+    footer {
+        margin: ($spacing_lg+$spacing_lg+$spacing_lg) 0px;
+        padding: 0px $padingLR; 
+    }
+}
+
+@media screen and (max-width: 375px) { // MOBILE
+    $padingLR: 20px;
+
+    .container-about,
+    .container-caveats,
+    .container-baseurl,
+    .container-departmentroutes,
+    .container-productroutes,
+    .container-basicusage,
+    .container-form,
+    footer {
+        margin: ($spacing_lg+$spacing_lg+$spacing_lg) 0px;
+        padding: 0px $padingLR; 
+    }
+}
+
+@import './header.scss';
+@import './about.scss';
+@import './caveats.scss';
+@import './baseurl.scss';
+@import './routes.scss';
+@import './usage.scss';
+@import './form.scss';
+@import './footer.scss';

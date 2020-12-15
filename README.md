@@ -10,7 +10,12 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
 - pagination for some routes
-- dummy reviews for each dummy product (Review Model)
+- filters for some routes
+- dummy users
+- dummy cart
+- dummy checkout (POST)
+- inStock property for each product
+- reviews property for each product (Review Model)
 - replace placeholder.com images with real images relative to product type
 
 ## Author: <i>Kevin Roi R. Basina</i>

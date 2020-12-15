@@ -12,7 +12,11 @@ footer {
         a {
             text-decoration: none;
             margin: 0px $spacing_sm;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
-
 }

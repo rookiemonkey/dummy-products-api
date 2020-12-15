@@ -6,9 +6,9 @@
         background-color: $color_tertiary;
         display: flex;
         align-items: center;
-    }
-
-    code {
         font-weight: 800;
+        margin-top: $spacing_md;
+        padding-top: $spacing_md;
+        overflow: auto;
     }
 }

@@ -84,6 +84,18 @@ footer {
   border-radius: 15px;
   overflow: auto; }
 
+@media screen and (max-width: 768px) {
+  .container-about,
+  .container-caveats,
+  .container-baseurl,
+  .container-departmentroutes,
+  .container-productroutes,
+  .container-basicusage,
+  .container-form,
+  footer {
+    margin: 60px 0px;
+    padding: 0px 50px; } }
+
 header {
   width: 100vw;
   height: 100vh;
@@ -157,6 +169,19 @@ header {
         border-radius: 35px;
         font-weight: 800; }
 
+@media screen and (max-width: 768px) {
+  header nav,
+  header section.header-contents {
+    padding: 0px 50px; }
+  header section.header-contents div.header-content-image {
+    display: none; }
+  header section.header-contents div.header-content-texts h1 {
+    font-size: 3rem; }
+  header section.header-contents div.header-content-texts p, header section.header-contents div.header-content-texts a {
+    font-size: 2rem; }
+  header section.header-contents div.header-content-texts a {
+    width: 300px; } }
+
 .container-about p {
   text-align: justify;
   margin-bottom: 20px; }
@@ -200,10 +225,11 @@ header {
   border-radius: 15px;
   background-color: #ffbca7;
   display: flex;
-  align-items: center; }
-
-.container-basicusage code {
-  font-weight: 800; }
+  align-items: center;
+  font-weight: 800;
+  margin-top: 12px;
+  padding-top: 12px;
+  overflow: auto; }
 
 .container-form {
   display: flex;
@@ -258,6 +284,14 @@ header {
       font-weight: 800;
       cursor: pointer; }
 
+@media screen and (max-width: 768px) {
+  .container-form div.form-image {
+    display: none; }
+  .container-form form,
+  .container-form div.form-dynamic {
+    width: 100%;
+    height: 400px; } }
+
 footer h4, footer p, footer a {
   text-align: center; }
 
@@ -268,3 +302,6 @@ footer div {
   footer div a {
     text-decoration: none;
     margin: 0px 8px; }
+    footer div a img {
+      width: 24px;
+      height: 24px; }

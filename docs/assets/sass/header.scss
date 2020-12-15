@@ -99,5 +99,37 @@ header {
             }
         }
     }
+}
 
+@media screen and (max-width: 768px) { // IPAD
+    $padingLR: 50px;
+
+    header {
+
+        nav,
+        section.header-contents {
+            padding: 0px $padingLR;
+        }
+
+
+        section.header-contents {
+            div.header-content-image {
+                display: none;
+            }
+
+            div.header-content-texts {
+                h1 {
+                    font-size: 3rem;
+                }
+
+                p, a {
+                    font-size: 2rem;
+                }
+
+                a {
+                    width: 300px;
+                }
+            }
+        }
+    }
 }

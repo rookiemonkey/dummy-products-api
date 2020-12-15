@@ -75,3 +75,17 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) { // IPAD
+    .container-form  {
+        div.form-image {
+            display: none;
+        }
+
+        form,
+        div.form-dynamic  {
+            width: 100%;
+            height: 400px;
+        }
+    }
+}

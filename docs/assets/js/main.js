@@ -1,4 +1,4 @@
-const baseurl = 'http://localhost:5050';
+const baseurl = 'https://dummyproducts-api.herokuapp.com';
 const btnResponse = document.querySelectorAll('.response');
 const viewResponse = document.querySelectorAll('.route-response');
 const form = document.getElementById('form-apikey');

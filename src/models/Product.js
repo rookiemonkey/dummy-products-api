@@ -30,6 +30,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         default: "https://via.placeholder.com/600?text='thanks to placeholder.com'"
     },
+    product_stock: {
+        type: Number,
+        default: () => Math.floor(Math.random() * 151)
+    },
     product_color: {
         type: String,
         default: () => faker.commerce.color()
@@ -52,8 +56,14 @@ const productSchema = new mongoose.Schema({
     },
     product_sales: {
         type: Number,
-        default: () => Math.floor(Math.random() * 1500)
-    }
+        default: () => Math.floor(Math.random() * 1501)
+    },
+    product_reviews: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Review"
+        }
+    ],
 })
 
 const Product = mongoose.model("Product", productSchema)

@@ -6,7 +6,9 @@ const Product = require('../models/Product');
  * returns all the available products
  */
 const getAllProducts = handleAsync(async (req, res, next) => {
-    const productsArray = await Product.find({});
+    const productsArray = await Product
+        .find({})
+        .select('-product_reviews -product_description');
 
     res.json({
         success: true,
@@ -25,6 +27,7 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
     const allTopRatedProducts = await Product
         .find({ product_ratings: { $gte: 4, $lte: 5 } })
         .sort({ product_ratings: 'descending' })
+        .select('-product_reviews -product_description')
         .limit(10);
 
     res.json({
@@ -44,6 +47,7 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
     const allTopSalesProducts = await Product
         .find({ product_sales: { $gte: 1000 } })
         .sort({ product_sales: 'descending' })
+        .select('-product_reviews -product_description')
         .limit(10);
 
     res.json({
@@ -60,7 +64,10 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
  * returns information about a product
  */
 const getAProduct = handleAsync(async (req, res, next) => {
-    const foundProduct = await Product.findById(req.params.prodId);
+    const foundProduct = await Product
+        .findById(req.params.prodId)
+        .populate("product_reviews")
+        .exec()
 
     if (!foundProduct) throw new res.withError('Product not found', 404)
 

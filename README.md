@@ -14,8 +14,6 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 - dummy users
 - dummy cart
 - dummy checkout (POST)
-- inStock property for each product
-- reviews property for each product (Review Model)
 - replace placeholder.com images with real images relative to product type
 
 ### Contributors ✨

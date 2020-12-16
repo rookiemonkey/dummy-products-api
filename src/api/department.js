@@ -52,7 +52,9 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
 
     if (!isDepartmentExisting) throw new res.withError('Department not found', 404)
 
-    const departmentProductsArray = await Product.find({ product_departmentId })
+    const departmentProductsArray = await Product
+        .find({ product_departmentId })
+        .select('-product_reviews -product_description')
 
     res.json({
         success: true,
@@ -78,6 +80,7 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
     const departmentTopRated = await Product
         .find({ product_departmentId, product_ratings: { $gte: 4, $lte: 5 } })
         .sort({ product_ratings: 'descending' })
+        .select('-product_reviews -product_description')
         .limit(10);
 
     res.json({
@@ -104,6 +107,7 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
     const departmentTopSales = await Product
         .find({ product_departmentId, product_sales: { $gte: 1000 } })
         .sort({ product_sales: 'descending' })
+        .select('-product_reviews -product_description')
         .limit(10);
 
     res.json({

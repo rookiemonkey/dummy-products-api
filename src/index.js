@@ -2,7 +2,7 @@
 // DEPENDENCIES
 // =============================================
 require('dotenv').config();
-require('./models/__index')();
+require('./models/__index');
 const express = require("express");
 const app = express();
 const morgan = require('morgan');

@@ -1,14 +1,7 @@
 const handleAsync = require('../utilities/toHandleAsync');
+const toPaginate = require('../utilities/toPaginate');
 const Product = require('../models/Product');
 const Departments = require('../models/_department');
-const DepartmentIds = new Array();
-
-// helper variable: available department ids 
-for (let i = 0; i !== Departments.length; i++) {
-    const department = Departments[i];
-    const [id, key] = Object.keys(department);
-    DepartmentIds.push(department[id]);
-}
 
 /**
  * !PATH: /api/v1/departments
@@ -45,21 +38,23 @@ const getAllDepartments = handleAsync(async (req, res, next) => {
  * returns all the available products on a given department
  */
 const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
-    const product_departmentId = req.params.deptId
 
-    const isDepartmentExisting = DepartmentIds
-        .some(departmentId => departmentId == product_departmentId)
+    const pagination = toPaginate(req.query)
 
-    if (!isDepartmentExisting) throw new res.withError('Department not found', 404)
+    if (!pagination)
+        throw new res.withError('Please enter a valid argument for the filters', 400)
 
     const departmentProductsArray = await Product
-        .find({ product_departmentId })
+        .find({ product_departmentId: req.params.deptId })
         .select('-product_reviews -product_description')
+        .limit(pagination.searchLimit)
+        .skip(pagination.searchSkip);
 
     res.json({
         success: true,
         datatype: "ALL DEPARTMENT'S PRODUCTS",
         numOfResults: departmentProductsArray.length,
+        page: pagination.searchPage,
         data: departmentProductsArray
     })
 })
@@ -70,23 +65,27 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
  * returns all the available products on a given department with ratings more than 4
  */
 const getAllTopRated = handleAsync(async (req, res, next) => {
-    const product_departmentId = req.params.deptId
 
-    const isDepartmentExisting = DepartmentIds
-        .some(departmentId => departmentId == product_departmentId)
+    const pagination = toPaginate(req.query)
 
-    if (!isDepartmentExisting) throw new res.withError('Department not found', 404)
+    if (!pagination)
+        throw new res.withError('Please enter a valid argument for the filters', 400)
 
     const departmentTopRated = await Product
-        .find({ product_departmentId, product_ratings: { $gte: 4, $lte: 5 } })
+        .find({
+            product_departmentId: req.params.deptId,
+            product_ratings: { $gte: 4, $lte: 5 }
+        })
         .sort({ product_ratings: 'descending' })
         .select('-product_reviews -product_description')
-        .limit(10);
+        .limit(pagination.searchLimit)
+        .skip(pagination.searchSkip);
 
     res.json({
         success: true,
         datatype: "ALL DEPARTMENT'S TOP RATED PRODUCTS. Starting from the highest rating",
         numOfResults: departmentTopRated.length,
+        page: pagination.searchPage,
         data: departmentTopRated
     })
 })
@@ -97,23 +96,27 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
  * returns all the available products on a given department with sales more than 1000
  */
 const getAllTopSales = handleAsync(async (req, res, next) => {
-    const product_departmentId = req.params.deptId
 
-    const isDepartmentExisting = DepartmentIds
-        .some(departmentId => departmentId == product_departmentId)
+    const pagination = toPaginate(req.query)
 
-    if (!isDepartmentExisting) throw new res.withError('Department not found', 404)
+    if (!pagination)
+        throw new res.withError('Please enter a valid argument for the filters', 400)
 
     const departmentTopSales = await Product
-        .find({ product_departmentId, product_sales: { $gte: 1000 } })
+        .find({
+            product_departmentId: req.params.deptId,
+            product_sales: { $gte: 1000 }
+        })
         .sort({ product_sales: 'descending' })
         .select('-product_reviews -product_description')
-        .limit(10);
+        .limit(pagination.searchLimit)
+        .skip(pagination.searchSkip);
 
     res.json({
         success: true,
         datatype: "ALL DEPARTMENT'S TOP SALES PRODUCTS. Starting from the highest sales",
         numOfResults: departmentTopSales.length,
+        page: pagination.searchPage,
         data: departmentTopSales
     })
 })

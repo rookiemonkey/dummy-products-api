@@ -18,6 +18,20 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 - reviews property for each product (Review Model)
 - replace placeholder.com images with real images relative to product type
 
+### Contributors ✨
+
+Thank you for all who contributed to this project!
+
+<table>
+	<tr>
+		<td align="center">
+			<a href="https://github.com/justinbalaguer">
+			<img src="https://avatars0.githubusercontent.com/u/26339491?s=400&u=c1f802af9e6c33df21f4314d2065dc2be7d12e51&v=4" width="100px;" alt=""/><br /><sub><b>
+Justin Balaguer</b></sub></a></a>
+		</td>
+	</tr>
+</table>
+
 ## Author: <i>Kevin Roi R. Basina</i>
 <a href="https://github.com/rookiemonkey">
 	<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />

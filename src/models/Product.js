@@ -32,19 +32,19 @@ const productSchema = new mongoose.Schema({
     },
     product_color: {
         type: String,
-        default: faker.commerce.color()
+        default: () => faker.commerce.color()
     },
     product_price: {
         type: Number,
-        default: parseFloat(faker.commerce.price())
+        default: () => parseFloat(faker.commerce.price())
     },
     product_material: {
         type: String,
-        default: faker.commerce.productMaterial()
+        default: () => faker.commerce.productMaterial()
     },
     product_description: {
         type: String,
-        default: faker.commerce.productDescription()
+        default: () => faker.commerce.productDescription()
     },
     product_ratings: {
         type: Number,

@@ -9,7 +9,6 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 #### if you found this very useful, Please don't forget to star this repo! :tada: A rookie like me will highly appreaciate it
 
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
-- pagination for some routes
 - filters for some routes
 - dummy users
 - dummy cart

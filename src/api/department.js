@@ -44,19 +44,30 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
     if (!pagination)
         throw new res.withError('Please enter a valid argument for the filters', 400)
 
+    const numOfDeptProducts = await Product
+        .find({ product_departmentId: req.params.deptId })
+        .count();
+
     const departmentProductsArray = await Product
         .find({ product_departmentId: req.params.deptId })
         .select('-product_reviews -product_description')
         .limit(pagination.searchLimit)
         .skip(pagination.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S PRODUCTS",
         numOfResults: departmentProductsArray.length,
+        lastPage: Math.ceil(numOfDeptProducts / pagination.searchLimit),
         page: pagination.searchPage,
         data: departmentProductsArray
-    })
+    }
+
+    response.page > response.lastPage
+        ? response.data = `You've reached the last page`
+        : null
+
+    res.json(response)
 })
 
 
@@ -71,6 +82,13 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
     if (!pagination)
         throw new res.withError('Please enter a valid argument for the filters', 400)
 
+    const numOfDeptProducts = await Product
+        .find({
+            product_departmentId: req.params.deptId,
+            product_ratings: { $gte: 4, $lte: 5 }
+        })
+        .count();
+
     const departmentTopRated = await Product
         .find({
             product_departmentId: req.params.deptId,
@@ -81,13 +99,20 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
         .limit(pagination.searchLimit)
         .skip(pagination.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S TOP RATED PRODUCTS. Starting from the highest rating",
         numOfResults: departmentTopRated.length,
+        lastPage: Math.ceil(numOfDeptProducts / pagination.searchLimit),
         page: pagination.searchPage,
         data: departmentTopRated
-    })
+    }
+
+    response.page > response.lastPage
+        ? response.data = `You've reached the last page`
+        : null
+
+    res.json(response)
 })
 
 
@@ -102,6 +127,13 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
     if (!pagination)
         throw new res.withError('Please enter a valid argument for the filters', 400)
 
+    const numOfDeptProducts = await Product
+        .find({
+            product_departmentId: req.params.deptId,
+            product_sales: { $gte: 1000 }
+        })
+        .count();
+
     const departmentTopSales = await Product
         .find({
             product_departmentId: req.params.deptId,
@@ -112,13 +144,20 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
         .limit(pagination.searchLimit)
         .skip(pagination.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S TOP SALES PRODUCTS. Starting from the highest sales",
         numOfResults: departmentTopSales.length,
+        lastPage: Math.ceil(numOfDeptProducts / pagination.searchLimit),
         page: pagination.searchPage,
         data: departmentTopSales
-    })
+    }
+
+    response.page > response.lastPage
+        ? response.data = `You've reached the last page`
+        : null
+
+    res.json(response)
 })
 
 

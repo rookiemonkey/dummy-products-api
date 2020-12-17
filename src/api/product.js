@@ -13,19 +13,30 @@ const getAllProducts = handleAsync(async (req, res, next) => {
     if (!pagination)
         throw new res.withError('Please enter a valid argument for the filters', 400)
 
+    const numOfProducts = await Product
+        .find({})
+        .count();
+
     const productsArray = await Product
         .find({})
         .select('-product_reviews -product_description')
         .limit(pagination.searchLimit)
         .skip(pagination.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: 'ALL PRODUCTS',
         numOfResults: productsArray.length,
+        lastPage: Math.ceil(numOfProducts / pagination.searchLimit),
         page: pagination.searchPage,
         data: productsArray
-    })
+    }
+
+    response.page > response.lastPage
+        ? response.data = `You've reached the last page`
+        : null
+
+    res.json(response)
 })
 
 
@@ -40,6 +51,10 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
     if (!pagination)
         throw new res.withError('Please enter a valid argument for the filters', 400)
 
+    const numOfProducts = await Product
+        .find({ product_ratings: { $gte: 4, $lte: 5 } })
+        .count();
+
     const allTopRatedProducts = await Product
         .find({ product_ratings: { $gte: 4, $lte: 5 } })
         .sort({ product_ratings: 'descending' })
@@ -47,13 +62,20 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
         .limit(pagination.searchLimit)
         .skip(pagination.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: "ALL TOP RATED PRODUCTS. Starting from the highest rating",
         numOfResults: allTopRatedProducts.length,
+        lastPage: Math.ceil(numOfProducts / pagination.searchLimit),
         page: pagination.searchPage,
         data: allTopRatedProducts
-    })
+    }
+
+    response.page > response.lastPage
+        ? response.data = `You've reached the last page`
+        : null
+
+    res.json(response)
 })
 
 
@@ -68,6 +90,10 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
     if (!pagination)
         throw new res.withError('Please enter a valid argument for the filters', 400)
 
+    const numOfProducts = await Product
+        .find({ product_sales: { $gte: 1000 } })
+        .count();
+
     const allTopSalesProducts = await Product
         .find({ product_sales: { $gte: 1000 } })
         .sort({ product_sales: 'descending' })
@@ -75,13 +101,20 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
         .limit(pagination.searchLimit)
         .skip(pagination.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: "ALL TOP SALES PRODUCTS. Starting from the highest sales",
         numOfResults: allTopSalesProducts.length,
+        lastPage: Math.ceil(numOfProducts / pagination.searchLimit),
         page: pagination.searchPage,
         data: allTopSalesProducts
-    })
+    }
+
+    response.page > response.lastPage
+        ? response.data = `You've reached the last page`
+        : null
+
+    res.json(response)
 })
 
 

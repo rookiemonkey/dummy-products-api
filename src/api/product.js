@@ -1,5 +1,4 @@
 const handleAsync = require('../utilities/toHandleAsync');
-const toPaginate = require('../utilities/toPaginate');
 const Product = require('../models/Product');
 
 /**
@@ -8,11 +7,6 @@ const Product = require('../models/Product');
  */
 const getAllProducts = handleAsync(async (req, res, next) => {
 
-    const pagination = toPaginate(req.query)
-
-    if (!pagination)
-        throw new res.withError('Please enter a valid argument for the filters', 400)
-
     const numOfProducts = await Product
         .find({})
         .count();
@@ -20,15 +14,15 @@ const getAllProducts = handleAsync(async (req, res, next) => {
     const productsArray = await Product
         .find({})
         .select('-product_reviews -product_description')
-        .limit(pagination.searchLimit)
-        .skip(pagination.searchSkip);
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
     const response = {
         success: true,
         datatype: 'ALL PRODUCTS',
         numOfResults: productsArray.length,
-        lastPage: Math.ceil(numOfProducts / pagination.searchLimit),
-        page: pagination.searchPage,
+        lastPage: Math.ceil(numOfProducts / req.searchLimit),
+        page: req.searchPage,
         data: productsArray
     }
 
@@ -46,11 +40,6 @@ const getAllProducts = handleAsync(async (req, res, next) => {
  */
 const getAllTopRated = handleAsync(async (req, res, next) => {
 
-    const pagination = toPaginate(req.query)
-
-    if (!pagination)
-        throw new res.withError('Please enter a valid argument for the filters', 400)
-
     const numOfProducts = await Product
         .find({ product_ratings: { $gte: 4, $lte: 5 } })
         .count();
@@ -59,15 +48,15 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
         .find({ product_ratings: { $gte: 4, $lte: 5 } })
         .sort({ product_ratings: 'descending' })
         .select('-product_reviews -product_description')
-        .limit(pagination.searchLimit)
-        .skip(pagination.searchSkip);
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
     const response = {
         success: true,
         datatype: "ALL TOP RATED PRODUCTS. Starting from the highest rating",
         numOfResults: allTopRatedProducts.length,
-        lastPage: Math.ceil(numOfProducts / pagination.searchLimit),
-        page: pagination.searchPage,
+        lastPage: Math.ceil(numOfProducts / req.searchLimit),
+        page: req.searchPage,
         data: allTopRatedProducts
     }
 
@@ -85,11 +74,6 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
  */
 const getAllTopSales = handleAsync(async (req, res, next) => {
 
-    const pagination = toPaginate(req.query)
-
-    if (!pagination)
-        throw new res.withError('Please enter a valid argument for the filters', 400)
-
     const numOfProducts = await Product
         .find({ product_sales: { $gte: 1000 } })
         .count();
@@ -98,15 +82,15 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
         .find({ product_sales: { $gte: 1000 } })
         .sort({ product_sales: 'descending' })
         .select('-product_reviews -product_description')
-        .limit(pagination.searchLimit)
-        .skip(pagination.searchSkip);
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
     const response = {
         success: true,
         datatype: "ALL TOP SALES PRODUCTS. Starting from the highest sales",
         numOfResults: allTopSalesProducts.length,
-        lastPage: Math.ceil(numOfProducts / pagination.searchLimit),
-        page: pagination.searchPage,
+        lastPage: Math.ceil(numOfProducts / req.searchLimit),
+        page: req.searchPage,
         data: allTopSalesProducts
     }
 

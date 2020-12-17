@@ -1,5 +1,4 @@
 const handleAsync = require('../utilities/toHandleAsync');
-const toPaginate = require('../utilities/toPaginate');
 const Product = require('../models/Product');
 const Departments = require('../models/_department');
 
@@ -39,11 +38,6 @@ const getAllDepartments = handleAsync(async (req, res, next) => {
  */
 const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
 
-    const pagination = toPaginate(req.query)
-
-    if (!pagination)
-        throw new res.withError('Please enter a valid argument for the filters', 400)
-
     const numOfDeptProducts = await Product
         .find({ product_departmentId: req.params.deptId })
         .count();
@@ -51,15 +45,15 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
     const departmentProductsArray = await Product
         .find({ product_departmentId: req.params.deptId })
         .select('-product_reviews -product_description')
-        .limit(pagination.searchLimit)
-        .skip(pagination.searchSkip);
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
     const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S PRODUCTS",
         numOfResults: departmentProductsArray.length,
-        lastPage: Math.ceil(numOfDeptProducts / pagination.searchLimit),
-        page: pagination.searchPage,
+        lastPage: Math.ceil(numOfDeptProducts / req.searchLimit),
+        page: req.searchPage,
         data: departmentProductsArray
     }
 
@@ -77,11 +71,6 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
  */
 const getAllTopRated = handleAsync(async (req, res, next) => {
 
-    const pagination = toPaginate(req.query)
-
-    if (!pagination)
-        throw new res.withError('Please enter a valid argument for the filters', 400)
-
     const numOfDeptProducts = await Product
         .find({
             product_departmentId: req.params.deptId,
@@ -96,15 +85,15 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
         })
         .sort({ product_ratings: 'descending' })
         .select('-product_reviews -product_description')
-        .limit(pagination.searchLimit)
-        .skip(pagination.searchSkip);
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
     const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S TOP RATED PRODUCTS. Starting from the highest rating",
         numOfResults: departmentTopRated.length,
-        lastPage: Math.ceil(numOfDeptProducts / pagination.searchLimit),
-        page: pagination.searchPage,
+        lastPage: Math.ceil(numOfDeptProducts / req.searchLimit),
+        page: req.searchPage,
         data: departmentTopRated
     }
 
@@ -122,11 +111,6 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
  */
 const getAllTopSales = handleAsync(async (req, res, next) => {
 
-    const pagination = toPaginate(req.query)
-
-    if (!pagination)
-        throw new res.withError('Please enter a valid argument for the filters', 400)
-
     const numOfDeptProducts = await Product
         .find({
             product_departmentId: req.params.deptId,
@@ -141,15 +125,15 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
         })
         .sort({ product_sales: 'descending' })
         .select('-product_reviews -product_description')
-        .limit(pagination.searchLimit)
-        .skip(pagination.searchSkip);
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
     const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S TOP SALES PRODUCTS. Starting from the highest sales",
         numOfResults: departmentTopSales.length,
-        lastPage: Math.ceil(numOfDeptProducts / pagination.searchLimit),
-        page: pagination.searchPage,
+        lastPage: Math.ceil(numOfDeptProducts / req.searchLimit),
+        page: req.searchPage,
         data: departmentTopSales
     }
 

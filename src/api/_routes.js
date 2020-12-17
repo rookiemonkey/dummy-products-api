@@ -2,18 +2,46 @@ const { Router } = require('express');
 const router = Router({ mergeParams: true });
 const DepartmentController = require("./department");
 const ProductController = require("./product");
-const isDepartmentExisting = require('../middlewares/checkDepartment');
+const checkDept = require('../middlewares/checkDepartment');
+const checkQuery = require('../middlewares/checkQuery');
+
+
 
 // DEPARTMENT Controllers
-router.get('/departments', DepartmentController.getAllDepartments)
-router.get('/departments/:deptId', isDepartmentExisting, DepartmentController.getAllDepartmentProducts)
-router.get('/departments/:deptId/toprated', isDepartmentExisting, DepartmentController.getAllTopRated)
-router.get('/departments/:deptId/topsales', isDepartmentExisting, DepartmentController.getAllTopSales)
+router.route('/departments')
+    .get(DepartmentController.getAllDepartments)
+
+router.route('/departments/:deptId')
+    .get(checkDept, checkQuery,
+        DepartmentController.getAllDepartmentProducts)
+
+router.route('/departments/:deptId/toprated')
+    .get(checkDept, checkQuery,
+        DepartmentController.getAllTopRated)
+
+router.route('/departments/:deptId/topsales')
+    .get(checkDept, checkQuery,
+        DepartmentController.getAllTopSales)
+
+
 
 // PRODUCT Controllers
-router.get('/products', ProductController.getAllProducts)
-router.get('/products/toprated', ProductController.getAllTopRated)
-router.get('/products/topsales', ProductController.getAllTopSales)
-router.get('/products/:prodId', ProductController.getAProduct)
+router.route('/products')
+    .get(checkQuery,
+        ProductController.getAllProducts)
+
+router.route('/products/toprated')
+    .get(checkQuery,
+        ProductController.getAllTopRated)
+
+router.route('/products/topsales')
+    .get(checkQuery,
+        ProductController.getAllTopSales)
+
+router.route('/products/:prodId')
+    .get(checkQuery,
+        ProductController.getAProduct)
+
+
 
 module.exports = router;

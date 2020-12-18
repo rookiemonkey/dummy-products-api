@@ -40,28 +40,28 @@ module.exports = [
     {
         id: "pets",
         Pets:
-            ["Leash", "Collar", "Pet Shoes", "Pet Bowl", "Pet Feeder", "Pet Cage", "Pet Crate", "Pet Litter", "Pet carrier", "Aquarium", "Pet Toy", "Dog Food", "Cat Food", "Fish Food", "Bird Feed"]
+            ["Leash", "Collar", "Pet Shoes", "Pet Bowl", "Bird Feeder", "Pet Cage", "Pet Crate", "Pet Litter", "Pet Carrier", "Aquarium", "Pet Toy", "Dog Food", "Cat Food", "Fish Food", "Bird Food"]
     },
 
 
     {
         id: "fashionwomen",
         "Fashion Women":
-            ["Women Shoes", "Tote Bag", "Travel Bag", "Dress", "Coin Purse", "Women Jacket", "Women Sweatshirt", "Women Jumpsuit", "Women Jeans", "Women Leggings", "Women Skirt", "Women Shorts", "Women Sandals", "Flat Shoes", "Heels", "Wedges", "Boots", "Clutches", "Wristlets", "Women Wallet", "Belt Bag", "Women Backpack"]
+            ["Tote Bag", "Travel Bag", "Dress", "Coin Purse", "Women Jacket", "Women Sweatshirt", "Women Jeans", "Women Leggings", "Women Skirt", "Women Shorts", "Women Sandals", "Flat Shoes", "Heels", "Wedges", "Boots", "Women Wallet", "Belt Bag", "Women Backpack", "Women Shirt"]
     },
 
 
     {
         id: "fashionmen",
         "Fashion Men":
-            ["T-shirt", "Tank Top", "Polo Shirt", "Shirt", "Men Jacker", "Coat", "Hoodie", "Cardigan", "Jeans", "Formal Pants", "Shorts", "Sneakers", "Loafers", "Black Shoes", "Men Sandals", "Messenger Bag", "Men Backpack", "Men Wallet"]
+            ["T-shirt", "Tank Top", "Polo Shirt", "Shirt", "Men Jacker", "Coat", "Hoodie", "Cardigan", "Jeans", "Formal Pants", "Shorts", "Sneakers", "Loafers", "Black Shoes", "Men Sandals", "Messenger Bag", "Men Backpack", "Men Wallet", "Belt"]
     },
 
 
     {
         id: "accessories",
         Accessories:
-            ["Watch", "Necklace", "Earring", "Ring", "Bangle", "bracelet", "Eyeglasses", "Sunglasses", "Contact Lenses"]
+            ["Watch", "Necklace", "Earring", "Ring", "Bangle", "bracelet", "Eyeglasses", "Sunglasses", "Contact Lenses", "Headband", "Cap"]
     },
 
 

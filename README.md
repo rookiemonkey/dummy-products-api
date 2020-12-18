@@ -16,6 +16,10 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 - separate array for adjectives, faker.commerce.adjective returns minimal amount of adjs
 - replace placeholder.com images with real images relative to product type
 
+### Contributing Guidlines
+
+Please check this [contributing guidlines](https://github.com/rookiemonkey/dummy-products-api/blob/dev/CONTRIBUTING.md)
+
 ### Contributors ✨
 
 Thank you for all who contributed to this project!

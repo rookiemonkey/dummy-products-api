@@ -34,7 +34,9 @@ app.use((req, res, next) => {
 })
 
 // exposing the public folder for public access. output of building docs
+// exposing the product folder for product images
 app.use(express.static('public'))
+app.use(express.static('products'))
 
 
 

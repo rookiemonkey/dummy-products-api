@@ -18,7 +18,7 @@ module.exports = [
     {
         id: "healthandbeauty",
         "Health & Beauty":
-            ["Make-up", "Shampoo", "Conditioner", "Soap", "Facial Wash", "Food Supplement", "Medicine", "Moisturizer", "Toothbrush", "Deodorant"]
+            ["Lipstick", "Eyeliner", "Makeup Brush", "Shampoo", "Conditioner", "Soap", "Facial Wash", "Food Supplement", "Medicine", "Moisturizer", "Toothbrush", "Deodorant"]
     },
 
 
@@ -33,7 +33,7 @@ module.exports = [
     {
         id: "groceries",
         Groceries:
-            ["Coffee", "Tea", "Water", "Chocolate", "Juice", "Whisky", "Tequila", "Vodka", "Corned Beef", "Instant Noodles", "Olive Oil", "Vegetable Oil", "Chip", "Biscuit", "Oatmeal", "Cookie", "Bread", "Cake", "Tomatoes", "Onions", "Garlic", "Ginger", "Beef", "Pork", "Chicken", "Shrimp", "Fish", "Matches", "Dishwashing Liquid", "Bleach", "Toilet Cleaner"]
+            ["Coffee", "Tea", "Water", "Chocolate", "Juice", "Whisky", "Tequila", "Vodka", "Corned Beef", "Instant Noodles", "Olive Oil", "Vegetable Oil", "Chip", "Biscuit", "Oatmeal", "Cookie", "Bread", "Cake", "Tomatoes", "Onions", "Garlic", "Ginger", "Beef", "Pork", "Chicken", "Shrimp", "Fish", "Matches", "Dishwashing Liquid", "Bleach", "Toilet Cleaner", "Soy Sauce", "Vinegar", "Fish Sauce", "Ketchup", "Mustard", "Eggs", "Mayonaise"]
     },
 
 
@@ -68,7 +68,7 @@ module.exports = [
     {
         id: "sportsandlifestyle",
         "Sports & Lifestyle":
-            ["Bike", "Fishing Line", "Tent", "Swiss Knife", "Men Sport Shoes", "Women Sport Shoes", "Scooter", "Skateboard", "Yoga Mat", "Treadmill", "Exercise", "Bike", "Weights", "Basketball", "Boxing Gloves", "Snorkling Gear", "Badminton", "Tennis", "Volleyball", "Footbal", "Golf", "Baseball", "Guitar", "Piano", "Electric Keyboard", "Drums", "Percussion", "Flute", "Recorder"]
+            ["Bike", "Fishing Line", "Tent", "Swiss Knife", "Men Sport Shoes", "Women Sport Shoes", "Scooter", "Skateboard", "Yoga Mat", "Treadmill", "Exercise", "Bike", "Weights", "Basketball", "Boxing Gloves", "Snorkling Gear", "Badminton", "Tennis", "Volleyball", "Footbal", "Golf", "Baseball", "Guitar", "Piano", "Electric Keyboard", "Drums", "Percussion", "Flute", "Recorder", "Cigarette"]
     },
 
 

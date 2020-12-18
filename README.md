@@ -13,6 +13,7 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 - dummy users
 - dummy cart
 - dummy checkout (POST)
+- separate array for adjectives, faker.commerce.adjective returns minimal amount of adjs
 - replace placeholder.com images with real images relative to product type
 
 ### Contributors ✨

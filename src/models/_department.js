@@ -52,9 +52,9 @@ module.exports = [
 
 
     {
-        id: "fashionmen",
+        id: "fashionmen",   
         "Fashion Men":
-            ["T-shirt", "Tank Top", "Polo Shirt", "Shirt", "Men Jacker", "Coat", "Hoodie", "Cardigan", "Jeans", "Formal Pants", "Shorts", "Sneakers", "Loafers", "Black Shoes", "Men Sandals", "Messenger Bag", "Men Backpack", "Men Wallet", "Belt"]
+            ["Tshirt", "Polo Shirt", "Men Jacket", "Coat", "Hoodie", "Men Jeans", "Formal Pants", "Men Shorts", "Sneakers", "Loafers", "Black Shoes", "Men Sandals", "Messenger Bag", "Men Backpack", "Men Wallet", "Belt"]
     },
 
 

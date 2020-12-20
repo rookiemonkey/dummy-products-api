@@ -4,12 +4,17 @@
 - any changes on the styles/scripts should be done inside the same folder
 - any changes on the markups should also be done inside the same folder
 
-2. changes on the styles should reflect once sass files are compile into css. To do this, run the script:
+2. start the live server. Alternatively, you can navigate to /public and use an npm package called 'serve'. [check its docs here](https://www.npmjs.com/package/serve)
+```
+yarn run server
+```
+
+3. changes on the styles should reflect once sass files are compile into css. To do this, run the script:
 ```
 yarn run docs:sass
 ```
 
-3. before commiting the changes you've made, make sure you build the /docs first. This will ouput the /public folder but all assets are minified for performance purposes. This folder is the one exposed to users and not the /docs folder
+4. before commiting the changes you've made, make sure you build the /docs first. This will ouput the /public folder but all assets are minified for performance purposes. This folder is the one exposed to users and not the /docs folder
 ```
 yarn run docs:build
 ```

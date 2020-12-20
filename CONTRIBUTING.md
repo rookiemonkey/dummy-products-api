@@ -20,7 +20,18 @@ yarn run docs:build
 ```
 
 
-## CONTRIBUTING A PRODUCT / PRODUCT IMAGES
+## CONTRIBUTING A DEPARTMENT
+
+1. when contributing a department, 
+- add a department type into the object that is exported on /src/models/_departments.js
+
+2. give the new department at least 2 properties, id and the department name
+- if the department name has space, enclose it inside 2 double quotes
+- give it a least 5 starting products types with images. (follow the guidlines on how to contribute a product)
+
+
+
+## CONTRIBUTING A PRODUCT / PRODUCT IMAGES (existing department)
 
 1. when contributing a product, 
 - add a product type into a specific department's array on /src/models/_departments.js

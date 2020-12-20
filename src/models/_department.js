@@ -18,7 +18,7 @@ module.exports = [
     {
         id: "healthandbeauty",
         "Health & Beauty":
-            ["Lipstick", "Eyeliner", "Makeup Brush", "Shampoo", "Conditioner", "Soap", "Facial Wash", "Food Supplement", "Medicine", "Moisturizer", "Toothbrush", "Deodorant"]
+            ["Lipstick", "Eyeliner", "Makeup Brush", "Shampoo", "Conditioner", "Soap", "Facial Wash", "Food Supplement", "Medicine", "Moisturizer", "Toothbrush", "Deodorant", "Shaver"]
     },
 
 
@@ -52,7 +52,7 @@ module.exports = [
 
 
     {
-        id: "fashionmen",   
+        id: "fashionmen",
         "Fashion Men":
             ["Tshirt", "Polo Shirt", "Men Jacket", "Coat", "Hoodie", "Men Jeans", "Formal Pants", "Men Shorts", "Sneakers", "Loafers", "Black Shoes", "Men Sandals", "Messenger Bag", "Men Backpack", "Men Wallet", "Belt"]
     },
@@ -61,21 +61,21 @@ module.exports = [
     {
         id: "accessories",
         Accessories:
-            ["Watch", "Necklace", "Earring", "Ring", "Bangle", "bracelet", "Eyeglasses", "Sunglasses", "Contact Lenses", "Headband", "Cap"]
+            ["Watch", "Necklace", "Earring", "Ring", "Bangle", "Bracelet", "Eyeglasses", "Sunglasses", "Contact Lenses", "Headband", "Cap"]
     },
 
 
     {
         id: "sportsandlifestyle",
         "Sports & Lifestyle":
-            ["Bike", "Fishing Line", "Tent", "Swiss Knife", "Men Sport Shoes", "Women Sport Shoes", "Scooter", "Skateboard", "Yoga Mat", "Treadmill", "Exercise", "Bike", "Weights", "Basketball", "Boxing Gloves", "Snorkling Gear", "Badminton", "Tennis", "Volleyball", "Footbal", "Golf", "Baseball", "Guitar", "Piano", "Electric Keyboard", "Drums", "Percussion", "Flute", "Recorder", "Cigarette"]
+            ["Bike", "Fishing Rod", "Fishing Hook", "Tent", "Swiss Knife", "Men Sport Shoes", "Women Sport Shoes", "Scooter", "Skateboard", "Yoga Mat", "Treadmill", "Weights", "Basketball", "Boxing Gloves", "Boxing Bag", "Snorkling Gear", "Badminton", "Shuttlecock", "Tennis", "Tennis Ball", "Volleyball", "Baseball", "Baseball Bat", "Baseball Gloves", "Guitar", "Piano", "Electric Keyboard", "Drum Set", "Tambourine", "Snare Drum", "Cymbal", "Xylophone", "Flute", "Recorder", "E-Cigarette"]
     },
 
 
     {
         id: "automotive",
         Automotive:
-            ["Motorcycle", "Helmet", "Riding Gear", "Motorcycle Tire", "Small Vacuum", "Anti-freeze", "Brake Fluid", "Cleaner", "Flushes", "Grease", "Power Steering Fluid", "Transmission Fluids", "Sealers", "Fork Oil", "Suspension Fluid", "Engine Oil"]
+            ["Motorcycle", "Helmet", "Anti-freeze", "Brake Fluid", "Grease", "Power Steering Fluid", "Transmission Fluid", "Sealer", "Engine Oil"]
     }
 
 ]

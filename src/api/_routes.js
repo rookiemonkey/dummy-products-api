@@ -4,6 +4,7 @@ const DepartmentController = require("./department");
 const ProductController = require("./product");
 const checkDept = require('../middlewares/checkDepartment');
 const checkQuery = require('../middlewares/checkQuery');
+const checkFilter = require('../middlewares/checkFilters');
 
 
 
@@ -27,7 +28,7 @@ router.route('/departments/:deptId/topsales')
 
 // PRODUCT Controllers
 router.route('/products')
-    .get(checkQuery,
+    .get(checkQuery, checkFilter,
         ProductController.getAllProducts)
 
 router.route('/products/toprated')
@@ -39,7 +40,7 @@ router.route('/products/topsales')
         ProductController.getAllTopSales)
 
 router.route('/products/search')
-    .get(checkQuery,
+    .get(checkQuery, checkFilter,
         ProductController.searchProducts)
 
 router.route('/products/:prodId')

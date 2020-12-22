@@ -57,6 +57,9 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
         data: departmentProductsArray
     }
 
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
+
     if (response.page > response.lastPage)
         throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
@@ -96,6 +99,9 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
         data: departmentTopRated
     }
 
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
+
     if (response.page > response.lastPage)
         throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
@@ -134,6 +140,9 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
         page: req.searchPage,
         data: departmentTopSales
     }
+
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
 
     if (response.page > response.lastPage)
         throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)

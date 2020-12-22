@@ -1,5 +1,4 @@
 const handleAsync = require('../utilities/toHandleAsync');
-const toMatchAll = require('../utilities/toMatchAll');
 const Product = require('../models/Product');
 
 /**
@@ -9,11 +8,11 @@ const Product = require('../models/Product');
 const getAllProducts = handleAsync(async (req, res, next) => {
 
     const numOfProducts = await Product
-        .find({})
+        .find(req.filter)
         .count();
 
     const productsArray = await Product
-        .find({})
+        .find(req.filter)
         .select('-product_reviews -product_description')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
@@ -26,6 +25,9 @@ const getAllProducts = handleAsync(async (req, res, next) => {
         page: req.searchPage,
         data: productsArray
     }
+
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
 
     if (response.page > response.lastPage)
         throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
@@ -60,6 +62,9 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
         data: allTopRatedProducts
     }
 
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
+
     if (response.page > response.lastPage)
         throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
@@ -93,6 +98,9 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
         data: allTopSalesProducts
     }
 
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
+
     if (response.page > response.lastPage)
         throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
@@ -103,18 +111,16 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
 
 /**
  * !PATH: /api/v1/products/search?term=
- * returns all the produces that is a match to the query 'term'
+ * returns all the produces that is a match to the query 'term', checkFilters middleware
  */
 const searchProducts = handleAsync(async (req, res, next) => {
 
-    const matchThis = new RegExp(toMatchAll(req.query.term), 'gi');
-
     const numOfProducts = await Product
-        .find({ product_name: matchThis })
+        .find(req.filter)
         .count();
 
     const foundProducts = await Product
-        .find({ product_name: matchThis })
+        .find(req.filter)
         .select('-product_reviews -product_description')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
@@ -127,6 +133,9 @@ const searchProducts = handleAsync(async (req, res, next) => {
         page: req.searchPage,
         data: foundProducts
     }
+
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
 
     if (response.page > response.lastPage)
         throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)

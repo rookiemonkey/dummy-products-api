@@ -44,16 +44,25 @@
             admit that faker js is really helpful in some scenarios.</p>
         </br>
         <p>This results to me, thinking of creating an API that mimics the structure of the data in a simpliest way
-            possible, and there goes Dummy Products API :D</p>
+            possible, and there goes Dummy Products API &#128522;</p>
+    </article>
+
+    <article class="container-features">
+        <h2>Features</h2>
+        <ul>
+            <li>Each product has 3 different size of images relative to product type</li>
+            <li>Supports filters thru number of stocks, sales, price, and ratings</li>
+            <li>Supports search that matches all product names depending on the query</li>
+            <li>Supports pagination on most of the available routes</li>
+            <li>Supports dummy checkout</li>
+        </ul>
     </article>
 
     <article class="container-caveats">
         <h2>Caveats</h2>
         <ul>
-            <li>API key is needed (get yours below)</li>
+            <li>API key is required <a href="#form">get it now</a>!</li>
             <li>400 API calls per day</li>
-            <li>No Pagination (Soon)</li>
-            <li>No Filters (Soon)</li>
         </ul>
     </article>
 
@@ -360,9 +369,64 @@
 
     <article class="container-basicusage">
         <h2>Basic Usage</h2>
-        <p>Form the url and append the api key as a query string with key 'apikey'</p>
+        <p>Form the url and append the api key as a query string with key 'apikey'. <b>The 'apikey' is the only required
+                parameter on all routes</b></p>
         <pre>
         fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX')
+                .then(res => res.json())
+                .then(data => console.log(data))
+        </pre>
+    </article>
+
+    <article class="container-filter">
+        <h2>Filters</h2>
+        <p>Filters are only available to <b>'/products'</b> and <b>'/products/search'</b> routes, and this is only for
+            the mean time while the API is under restructuring since the addidtion of several middlewares.
+        </p> <br>
+
+        <p>To apply filters you need to use any of these query string keys <b>'stocks'</b>,
+            <b>'sales'</b>, <b>'price'</b>, and <b>'ratings'</b> with correct value format and can be chained together.
+        </p> <br>
+
+        <p>
+            Filter values should include any one operator <b>'lt'</b> which stands for <i>'less than'</i>,
+            <b>'lte'</b> which stands for <i>'less than or equal to'</i>, <b>'gt'</b> which stands for <i>'greater
+                than'</i>, or <b>'gte'</b> which stands for <i>'greater than or equal to'</i>. after the operator, give
+            the value by writing <b>"_"</b> then the value, eg: <b>"lte_25"</b> less than or equal to 25.
+        </p> <br>
+
+        <p>
+            If there are multiple filter values against a certain key, separate them using <b>"^"</b>
+        </p>
+
+        <small>The query below 'price=gt_500^lt_1500' will respond with all products that has a price greater than
+            500 and (seperated by ^)
+            less than 1500</small>
+        <pre>
+        fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX&price=gt_500^lt_1500')
+            .then(res => res.json())
+            .then(data => console.log(data))
+        </pre>
+    </article>
+
+    <article class="container-pagination">
+        <h2>Pagination</h2>
+        <p>Pagination is supported on all routes except <b>'/departments'</b> and <b>'/products/:product_id'</b> route.
+            To apply pagination, you need to
+            use the query string keys <b>'page'</b> and <b>'limit'</b> though you can use one at a time as well. <b>By
+                default, all routes are limited by 20 results</b>
+        </p>
+
+        <small>The query below only uses limit</small>
+        <pre>
+        fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX&limit=5')
+            .then(res => res.json())
+            .then(data => console.log(data))
+        </pre>
+
+        <small>The query below uses both limit and page</small>
+        <pre>
+        fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX&limit=5&page=2')
             .then(res => res.json())
             .then(data => console.log(data))
         </pre>

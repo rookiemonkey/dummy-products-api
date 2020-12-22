@@ -35,11 +35,14 @@ body {
   background-position: bottom; }
 
 .container-about,
+.container-features,
 .container-caveats,
 .container-baseurl,
 .container-departmentroutes,
 .container-productroutes,
 .container-basicusage,
+.container-filter,
+.container-pagination,
 .container-form,
 footer {
   width: 100vw;
@@ -48,11 +51,14 @@ footer {
   display: flex;
   flex-direction: column; }
   .container-about h2,
+  .container-features h2,
   .container-caveats h2,
   .container-baseurl h2,
   .container-departmentroutes h2,
   .container-productroutes h2,
   .container-basicusage h2,
+  .container-filter h2,
+  .container-pagination h2,
   .container-form h2,
   footer h2 {
     color: #007065;
@@ -86,11 +92,14 @@ footer {
 
 @media screen and (max-width: 768px) {
   .container-about,
+  .container-features,
   .container-caveats,
   .container-baseurl,
   .container-departmentroutes,
   .container-productroutes,
   .container-basicusage,
+  .container-filter,
+  .container-pagination,
   .container-form,
   footer {
     margin: 60px 0px;
@@ -98,11 +107,14 @@ footer {
 
 @media screen and (max-width: 375px) {
   .container-about,
+  .container-features,
   .container-caveats,
   .container-baseurl,
   .container-departmentroutes,
   .container-productroutes,
   .container-basicusage,
+  .container-filter,
+  .container-pagination,
   .container-form,
   footer {
     margin: 60px 0px;
@@ -212,6 +224,11 @@ header {
   text-align: justify;
   margin-bottom: 20px; }
 
+.container-features ul {
+  margin-left: 60px; }
+  .container-features ul li {
+    font-weight: 800; }
+
 .container-caveats ul {
   margin-left: 60px; }
   .container-caveats ul li {
@@ -259,16 +276,48 @@ header {
     .container-productroutes ul li p span.response {
       display: none; } }
 
-.container-basicusage pre {
-  min-height: 100px;
-  border-radius: 15px;
-  background-color: #ffbca7;
-  display: flex;
-  align-items: center;
-  font-weight: 800;
-  margin-top: 12px;
-  padding-top: 12px;
-  overflow: auto; }
+.container-basicusage {
+  text-align: justify; }
+  .container-basicusage pre {
+    min-height: 100px;
+    border-radius: 15px;
+    background-color: #ffbca7;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    margin-top: 12px;
+    padding-top: 12px;
+    overflow: auto; }
+
+.container-filter {
+  text-align: justify; }
+  .container-filter small {
+    font-size: 0.8rem;
+    margin-top: 20px; }
+  .container-filter pre {
+    min-height: 100px;
+    border-radius: 15px;
+    background-color: #ffbca7;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    padding-top: 12px;
+    overflow: auto; }
+
+.container-pagination {
+  text-align: justify; }
+  .container-pagination small {
+    font-size: 0.8rem;
+    margin-top: 20px; }
+  .container-pagination pre {
+    min-height: 100px;
+    border-radius: 15px;
+    background-color: #ffbca7;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    padding-top: 12px;
+    overflow: auto; }
 
 .container-form {
   display: flex;

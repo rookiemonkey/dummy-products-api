@@ -15,7 +15,7 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 	* filters will only work on ```/products``` and ```/products/search``` routes
 * with search route, matches all product names depending on the query. You need to use query string keys ```term``` which will throw an error if not provided
 * with pagination, you need to use query string keys ```page``` and ```limit```. You can use  both at the same time or one at a time
-	* pagination (```page``` & ```limit```) can be used with all routes except ```/departments```
+	* pagination (```page``` & ```limit```) can be used with all routes except ```/departments``` and ```/products/:product_id```
 * with checkout, it only emulates the post request when buying something. nothing is inserted on the database but returns an object of the transaction
 
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)

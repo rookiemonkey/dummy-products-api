@@ -44,8 +44,7 @@ router.route('/products/search')
         ProductController.searchProducts)
 
 router.route('/products/:prodId')
-    .get(checkQuery,
-        ProductController.getAProduct)
+    .get(ProductController.getAProduct)
 
 
 

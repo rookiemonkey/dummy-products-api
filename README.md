@@ -8,20 +8,27 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 
 #### if you found this very useful, Please don't forget to star this repo! :tada: A rookie like me will highly appreaciate it
 
+### FEATURES
+- each dummy product has dummy images relative to product type (those with CC license)
+- each dummy product comes with description, prices, stock, ratings, and reviews
+- with pagination, (use query string keys "page" and "limit")
+- with search function, matches all product names depending on the query (use query string keys "term")
+- pagination (page & limit) can be used with all routes except '/departments'
+- with checkout feature, just emulates the post request when buying something. nothing is inserted on the database 
+
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
 - filters for some routes
 - dummy users
 - dummy cart
 - dummy checkout (POST)
-- add dimensions property on Product Model
-- add discount property on Product Model
-- replace placeholder.com images with real images relative to product type
+- add dimensions property on Product Model?
+- add discount property on Product Model?
 
-### Contributing Guidlines
+### CONTRIBUTING GUIDELINES
 
 Please check this [contributing guidlines](https://github.com/rookiemonkey/dummy-products-api/blob/dev/CONTRIBUTING.md)
 
-### Contributors ✨
+### CONTRIBUTORS ✨
 
 Thank you for all who contributed to this project!
 

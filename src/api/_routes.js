@@ -38,6 +38,10 @@ router.route('/products/topsales')
     .get(checkQuery,
         ProductController.getAllTopSales)
 
+router.route('/products/search')
+    .get(checkQuery,
+        ProductController.searchProducts)
+
 router.route('/products/:prodId')
     .get(checkQuery,
         ProductController.getAProduct)

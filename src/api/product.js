@@ -1,4 +1,5 @@
 const handleAsync = require('../utilities/toHandleAsync');
+const toMatchAll = require('../utilities/toMatchAll');
 const Product = require('../models/Product');
 
 /**
@@ -26,9 +27,8 @@ const getAllProducts = handleAsync(async (req, res, next) => {
         data: productsArray
     }
 
-    response.page > response.lastPage
-        ? response.data = `You've reached the last page`
-        : null
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
     res.json(response)
 })
@@ -60,9 +60,8 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
         data: allTopRatedProducts
     }
 
-    response.page > response.lastPage
-        ? response.data = `You've reached the last page`
-        : null
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
     res.json(response)
 })
@@ -94,9 +93,43 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
         data: allTopSalesProducts
     }
 
-    response.page > response.lastPage
-        ? response.data = `You've reached the last page`
-        : null
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
+
+    res.json(response)
+})
+
+
+
+/**
+ * !PATH: /api/v1/products/search?term=
+ * returns all the produces that is a match to the query 'term'
+ */
+const searchProducts = handleAsync(async (req, res, next) => {
+
+    const matchThis = new RegExp(toMatchAll(req.query.term), 'gi');
+
+    const numOfProducts = await Product
+        .find({ product_name: matchThis })
+        .count();
+
+    const foundProducts = await Product
+        .find({ product_name: matchThis })
+        .select('-product_reviews -product_description')
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
+
+    const response = {
+        success: true,
+        datatype: "SEARCH QUERY",
+        numOfResults: foundProducts.length,
+        lastPage: Math.ceil(numOfProducts / req.searchLimit),
+        page: req.searchPage,
+        data: foundProducts
+    }
+
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
     res.json(response)
 })
@@ -123,6 +156,7 @@ const getAProduct = handleAsync(async (req, res, next) => {
 })
 
 module.exports = {
+    searchProducts,
     getAllProducts,
     getAllTopRated,
     getAllTopSales,

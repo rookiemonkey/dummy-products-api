@@ -57,9 +57,8 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
         data: departmentProductsArray
     }
 
-    response.page > response.lastPage
-        ? response.data = `You've reached the last page`
-        : null
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
     res.json(response)
 })
@@ -97,9 +96,8 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
         data: departmentTopRated
     }
 
-    response.page > response.lastPage
-        ? response.data = `You've reached the last page`
-        : null
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
     res.json(response)
 })
@@ -137,9 +135,8 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
         data: departmentTopSales
     }
 
-    response.page > response.lastPage
-        ? response.data = `You've reached the last page`
-        : null
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
 
     res.json(response)
 })

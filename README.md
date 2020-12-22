@@ -11,12 +11,12 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 ### FEATURES
 - each dummy product has dummy images relative to product type (images used has CC license)
 - each dummy product comes with description, prices, stock, ratings, and reviews
-- with filters, filter by ```stocks, sales, price, ratings``` with operators ```lt, gt, lte, gte``` (where in lt is 'less than', and lte 'less than or equal to', same pattern goes with gt & gte)
+- with filters, you filter by ```stocks, sales, price, ratings``` with operators ```lt, gt, lte, gte``` (where in ```lt``` is 'less than', and ```lte``` 'less than or equal to', same pattern goes with ```gt``` & ```gte```)
 - filters will only work on ```/products``` and ```/products/search``` routes
-- with search route, matches all product names depending on the query (use query string keys ```term`` required)
-- with pagination, (use query string keys ```page``` and ```limit```)
+- with search route, matches all product names depending on the query. You need to use query string keys ```term``` which will throw an error if not provided
+- with pagination, you need to use query string keys ```page``` and ```limit```. You can use  both at the same time or one at a time
 - pagination (```page``` & ```limit```) can be used with all routes except ```/departments```
-- with checkout feature, it just emulates the post request when buying something. nothing is inserted on the database 
+- with checkout, it only emulates the post request when buying something. nothing is inserted on the database but returns an object of the transaction
 
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
 - dummy users

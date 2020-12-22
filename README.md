@@ -9,14 +9,14 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 #### if you found this very useful, Please don't forget to star this repo! :tada: A rookie like me will highly appreaciate it
 
 ### FEATURES
-- each dummy product has dummy images relative to product type (images used has CC license)
-- each dummy product comes with description, prices, stock, ratings, and reviews
-- with filters, you filter by ```stocks, sales, price, ratings``` with operators ```lt, gt, lte, gte``` (where in ```lt``` is 'less than', and ```lte``` 'less than or equal to', same pattern goes with ```gt``` & ```gte```)
-- filters will only work on ```/products``` and ```/products/search``` routes
-- with search route, matches all product names depending on the query. You need to use query string keys ```term``` which will throw an error if not provided
-- with pagination, you need to use query string keys ```page``` and ```limit```. You can use  both at the same time or one at a time
-- pagination (```page``` & ```limit```) can be used with all routes except ```/departments```
-- with checkout, it only emulates the post request when buying something. nothing is inserted on the database but returns an object of the transaction
+* each dummy product has 3 dummy images (sizes 150x150, 300x300, 600x600) relative to product type (images used has CC license)
+* each dummy product comes with description, prices, stock, ratings, and 5 reviews
+* with filters, you filter by ```stocks, sales, price, ratings``` with operators ```lt, gt, lte, gte``` (where in ```lt``` is 'less than', and ```lte``` 'less than or equal to', same pattern goes with ```gt``` & ```gte```)
+	* filters will only work on ```/products``` and ```/products/search``` routes
+* with search route, matches all product names depending on the query. You need to use query string keys ```term``` which will throw an error if not provided
+* with pagination, you need to use query string keys ```page``` and ```limit```. You can use  both at the same time or one at a time
+	* pagination (```page``` & ```limit```) can be used with all routes except ```/departments```
+* with checkout, it only emulates the post request when buying something. nothing is inserted on the database but returns an object of the transaction
 
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
 - dummy users

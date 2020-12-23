@@ -61,7 +61,7 @@
     <article class="container-caveats">
         <h2>Caveats</h2>
         <ul>
-            <li>API key is required <a href="#form">get it now</a>!</li>
+            <li>API key is required - <a href="#form">get it now</a>!</li>
             <li>400 API calls per day</li>
         </ul>
     </article>
@@ -77,7 +77,7 @@
         <h2>Department Routes</h2>
         <ul>
             <li>
-                Get all available departments from the dummy store
+                Get all available departments from the dummy store numbers of products available to each
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/departments
@@ -87,20 +87,20 @@
                 {
                     "success": true,
                     "datatype": "ALL DEPARTMENTS",
-                    "numOfResults": 10,
+                    "numOfResults": 11,
                     "data": [
-                        {
-                            "department_name": "Appliances",
-                            "department_id": "appliances",
-                            "department_numProducts": 37
-                        },
-                        {
-                            "department_name": "Health & Beauty",
-                            "department_id": "healthandbeauty",
-                            "department_numProducts": 48
-                        }
+                            {
+                                "department_name": "Gadgets",
+                                "department_id": "gadgets",
+                                "department_numProducts": 7
+                            },
+                            {
+                                "department_name": "Appliances",
+                                "department_id": "appliances",
+                                "department_numProducts": 14
+                            },
 
-                        ... // more departments
+                        ... // more departments (num products might be more...)
                 }
                 </pre>
             </li>
@@ -115,34 +115,35 @@
                 {
                     "success": true,
                     "datatype": "ALL DEPARTMENT'S PRODUCTS",
-                    "numOfResults": 48,
+                    "numOfResults": 7,
+                    "lastPage": 1,
+                    "page": 1,
                     "data": [
                         {
-                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
-                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
-                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
-                        "product_color": "purple",
-                        "product_price": 786,
-                        "product_material": "Fresh",
-                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
-                        make you stand apart",
-                        "_id": "5fd4c754ce98f91a871e5237",
-                        "product_department": "Health & Beauty",
-                        "product_departmentId": "healthandbeauty",
-                        "product_type": "Make-up",
-                        "product_name": "Rustic Make-up",
-                        "product_ratings": 3,
-                        "product_sales": 1252,
-                        "__v": 0
+                        "product_image_sm": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_150.png",
+                        "product_image_md": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_300.png",
+                        "product_image_lg": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_600.png",
+                        "_id": "5fe1311b7aa7711eb3c0fff4",
+                        "product_name": "Fantastic Mobile Phone",
+                        "product_type": "Mobile Phone",
+                        "product_department": "Gadgets",
+                        "product_departmentId": "gadgets",
+                        "product_stock": 36,
+                        "product_color": "cyan",
+                        "product_price": 267,
+                        "product_material": "Metal",
+                        "product_ratings": 4,
+                        "product_sales": 901,
+                        "__v": 1
                         },
                 
-                        // more products of a department
+                        // more products from Gadgets department
                     ]
                 }
                 </pre>
             </li>
             <li>
-                Get all top rated products from a specific department id (top 10, highest to lowest)
+                Get all top rated products from a specific department id
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/departments/<span class="parameter">:department_id</span>/toprated
@@ -153,33 +154,34 @@
                     "success": true,
                     "datatype": "ALL DEPARTMENT'S TOP RATED PRODUCTS. Starting from the highest rating",
                     "numOfResults": 10,
+                    "lastPage": 1,
+                    "page": 1,
                     "data": [
                         {
-                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
-                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
-                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
-                        "product_color": "purple",
-                        "product_price": 786,
-                        "product_material": "Fresh",
-                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
-                        make you stand apart",
-                        "_id": "5fd4c754ce98f91a871e5241",
-                        "product_department": "Automotive",
-                        "product_departmentId": "automotive",
-                        "product_type": "Flushes",
-                        "product_name": "Awesome Flushes",
-                        "product_ratings": 5,
-                        "product_sales": 1081,
-                        "__v": 0
+                            "product_image_sm": https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_150.png",
+                            "product_image_md": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_300.png",
+                            "product_image_lg": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_600.png",
+                            "_id": "5fe1311b7aa7711eb3c0fff4",
+                            "product_name": "Fantastic Mobile Phone",
+                            "product_type": "Mobile Phone",
+                            "product_department": "Gadgets",
+                            "product_departmentId": "gadgets",
+                            "product_stock": 36,
+                            "product_color": "cyan",
+                            "product_price": 267,
+                            "product_material": "Metal",
+                            "product_ratings": 4,
+                            "product_sales": 901,
+                            "__v": 1
                         },
 
-                        ... // 9 more top rated products of a department
+                        ... // more top rated products of a department
                     ]
                 }
                 </pre>
             </li>
             <li>
-                Get all top sales products from a specific department id (top 10, highest to lowest)
+                Get all top sales products from a specific department id
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/departments/<span class="parameter">:department_id</span>/topsales
@@ -190,28 +192,29 @@
                     "success": true,
                     "datatype": "ALL DEPARTMENT'S TOP SALES PRODUCTS. Starting from the highest sales",
                     "numOfResults": 10,
+                    "lastPage": 1,
+                    "page": 1,
                     "data": [
-                        {
-                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
-                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
-                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
-                        "product_color": "purple",
-                        "product_price": 786,
-                        "product_material": "Fresh",
-                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
-                        make you stand apart",
-                        "_id": "5fd4c754ce98f91a871e5246",
-                        "product_department": "Automotive",
-                        "product_departmentId": "automotive",
-                        "product_type": "Small Vacuum",
-                        "product_name": "Incredible Small Vacuum",
-                        "product_ratings": 1,
-                        "product_sales": 1442,
-                        "__v": 0
-                        },
+                            {
+                            "product_image_sm": "https://dummyproducts-api.herokuapp.com/gadgets/desktop_150.png",
+                            "product_image_md": "https://dummyproducts-api.herokuapp.com/gadgets/desktop_300.png",
+                            "product_image_lg": "https://dummyproducts-api.herokuapp.com/gadgets/desktop_600.png",
+                            "_id": "5fe131207aa7711eb3c10006",
+                            "product_name": "Few Desktop",
+                            "product_type": "Desktop",
+                            "product_department": "Gadgets",
+                            "product_departmentId": "gadgets",
+                            "product_stock": 7,
+                            "product_color": "black",
+                            "product_price": 388,
+                            "product_material": "Wooden",
+                            "product_ratings": 4,
+                            "product_sales": 1466,
+                            "__v": 1
+                            },
 
-                        ... // 9 more top sales products of a department
-                    ]
+                            ... // more top sales products of a department
+                        ]
                 }
                 </pre>
             </li>
@@ -232,25 +235,26 @@
                 {
                     "success": true,
                     "datatype": "ALL PRODUCTS",
-                    "numOfResults": 501,
+                    "numOfResults": 20,
+                    "lastPage": 10,
+                    "page": 1,
                     "data": [
                         {
-                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
-                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
-                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
-                        "product_color": "purple",
-                        "product_price": 786,
-                        "product_material": "Fresh",
-                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
-                        make you stand apart",
-                        "_id": "5fd4c754ce98f91a871e5234",
-                        "product_department": "Appliances",
-                        "product_departmentId": "appliances",
-                        "product_type": "Mop",
-                        "product_name": "Handmade Mop",
-                        "product_ratings": 4,
-                        "product_sales": 945,
-                        "__v": 0
+                            "product_image_sm": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_150.png",
+                            "product_image_md": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_300.png",
+                            "product_image_lg": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_600.png",
+                            "_id": "5fe1311b7aa7711eb3c0fff4",
+                            "product_name": "Fantastic Mobile Phone",
+                            "product_type": "Mobile Phone",
+                            "product_department": "Gadgets",
+                            "product_departmentId": "gadgets",
+                            "product_stock": 36,
+                            "product_color": "cyan",
+                            "product_price": 267,
+                            "product_material": "Metal",
+                            "product_ratings": 4,
+                            "product_sales": 901,
+                            "__v": 1
                         },
 
                         ... // more products
@@ -259,7 +263,45 @@
                 </pre>
             </li>
             <li>
-                Get all top rated products (top 10, highest to lowest)
+                Get all products that matches the query
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/products/search<span class="parameter">?term=ProductNameHere</span>
+                    <span class="response" data-action="searchproducts">See Response</span>
+                </p>
+                <pre class="route-response" data-view="searchproducts" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "SEARCH QUERY",
+                    "numOfResults": 4,
+                    "lastPage": 1,
+                    "page": 1,
+                    "data": [
+                        {
+                            "product_image_sm": "https://dummyproducts-api.herokuapp.com/groceries/oliveoil_150.png",
+                            "product_image_md": "https://dummyproducts-api.herokuapp.com/groceries/oliveoil_300.png",
+                            "product_image_lg": "https://dummyproducts-api.herokuapp.com/groceries/oliveoil_600.png",
+                            "_id": "5fe131737aa7711eb3c1012c",
+                            "product_name": "Ergonomic Olive Oil",
+                            "product_type": "Olive Oil",
+                            "product_department": "Groceries",
+                            "product_departmentId": "groceries",
+                            "product_stock": 109,
+                            "product_color": "violet",
+                            "product_price": 282,
+                            "product_material": "Steel",
+                            "product_ratings": 4,
+                            "product_sales": 836,
+                            "__v": 1
+                        },
+
+                        ... // more products that matches the query
+                    ]
+                }
+                </pre>
+            </li>
+            <li>
+                Get all top rated products
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/products/toprated
@@ -269,34 +311,35 @@
                 {
                     "success": true,
                     "datatype": "ALL TOP RATED PRODUCTS. Starting from the highest rating",
-                    "numOfResults": 10,
+                    "numOfResults": 20,
+                    "lastPage": 4,
+                    "page": 1,
                     "data": [
                         {
-                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
-                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
-                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
-                        "product_color": "purple",
-                        "product_price": 786,
-                        "product_material": "Fresh",
-                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
-                        make you stand apart",
-                        "_id": "5fd4c754ce98f91a871e5241",
-                        "product_department": "Automotive",
-                        "product_departmentId": "automotive",
-                        "product_type": "Flushes",
-                        "product_name": "Awesome Flushes",
-                        "product_ratings": 5,
-                        "product_sales": 1081,
-                        "__v": 0
+                            "product_image_sm": "https://dummyproducts-api.herokuapp.com/appliances/vacuumcleaner_150.png",
+                            "product_image_md": "https://dummyproducts-api.herokuapp.com/appliances/vacuumcleaner_300.png",
+                            "product_image_lg": "https://dummyproducts-api.herokuapp.com/appliances/vacuumcleaner_600.png",
+                            "_id": "5fe131277aa7711eb3c1001e",
+                            "product_name": "Best-seller Vacuum Cleaner",
+                            "product_type": "Vacuum Cleaner",
+                            "product_department": "Appliances",
+                            "product_departmentId": "appliances",
+                            "product_stock": 57,
+                            "product_color": "salmon",
+                            "product_price": 717,
+                            "product_material": "Rubber",
+                            "product_ratings": 5,
+                            "product_sales": 1134,
+                            "__v": 1
                         },
 
-                        ... // 9 more top rated products
+                        ... // more top rated products
                     ]
                 }
                 </pre>
             </li>
             <li>
-                Get all top sales products (top 10, highest to lowest)
+                Get all top sales products
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>
                     /api/v1/products/topsales
@@ -306,28 +349,29 @@
                 {
                     "success": true,
                     "datatype": "ALL TOP SALES PRODUCTS. Starting from the highest sales",
-                    "numOfResults": 10,
+                    "numOfResults": 20,
+                    "lastPage": 4,
+                    "page": 1,
                     "data": [
                         {
-                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
-                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
-                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
-                        "product_color": "purple",
-                        "product_price": 786,
-                        "product_material": "Fresh",
-                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
-                        make you stand apart",
-                        "_id": "5fd4c755ce98f91a871e5374",
-                        "product_department": "Groceries",
-                        "product_departmentId": "groceries",
-                        "product_type": "Tea",
-                        "product_name": "Gorgeous Tea",
-                        "product_ratings": 5,
-                        "product_sales": 1499,
-                        "__v": 0
-                        },
+                            "product_image_sm": "https://dummyproducts-api.herokuapp.com/pets/dogfood_150.png",
+                            "product_image_md": "https://dummyproducts-api.herokuapp.com/pets/dogfood_300.png",
+                            "product_image_lg": "https://dummyproducts-api.herokuapp.com/pets/dogfood_600.png",
+                            "_id": "5fe131b47aa7711eb3c10216",
+                            "product_name": "Fantastic Dog Food",
+                            "product_type": "Dog Food",
+                            "product_department": "Pets",
+                            "product_departmentId": "pets",
+                            "product_stock": 109,
+                            "product_color": "blue",
+                            "product_price": 592,
+                            "product_material": "Granite",
+                            "product_ratings": 3,
+                            "product_sales": 1478,
+                            "__v": 1
+                        }
 
-                        ... // 9 more top sales products
+                        ... // more top sales products
                     ]
                 }
                 </pre>
@@ -344,22 +388,43 @@
                     "success": true,
                     "datatype": "A PRODUCT",
                     "data": {
-                        "product_image_sm": "https://via.placeholder.com/150?text='placeholder.com'",
-                        "product_image_md": "https://via.placeholder.com/300?text='placeholder.com'",
-                        "product_image_lg": "https://via.placeholder.com/600?text='thanks to placeholder.com'",
-                        "product_color": "purple",
-                        "product_price": 786,
-                        "product_material": "Fresh",
-                        "product_description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will
-                        make you stand apart",
-                        "_id": "5fd4c755ce98f91a871e53b5",
-                        "product_department": "Accessories",
-                        "product_departmentId": "accessories",
-                        "product_type": "bracelet",
-                        "product_name": "Sleek bracelet",
-                        "product_ratings": 0,
-                        "product_sales": 1490,
-                        "__v": 0
+                        "product_image_sm": "https://dummyproducts-api.herokuapp.com/pets/dogfood_150.png",
+                        "product_image_md": "https://dummyproducts-api.herokuapp.com/pets/dogfood_300.png",
+                        "product_image_lg": "https://dummyproducts-api.herokuapp.com/pets/dogfood_600.png",
+                        "product_reviews": [
+                                {
+                                    "_id": "5fe131b47aa7711eb3c10217",
+                                    "review_productid": "5fe131b47aa7711eb3c10216",
+                                    "review_name": "Ethel Hoppe MD",
+                                    "review_details": "Nulla dolorum est rerum in officiis libero.",
+                                    "review_rating": 3,
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "5fe131b57aa7711eb3c10218",
+                                    "review_productid": "5fe131b47aa7711eb3c10216",
+                                    "review_name": "Ivan Paucek",
+                                    "review_details": "Sunt tenetur corrupti quisquam placeat facilis.",
+                                    "review_rating": 3,
+                                    "__v": 0
+                                },
+                               
+                                // each product has 5 dummy reviews
+                            ],
+                        "_id": "5fe131b47aa7711eb3c10216",
+                        "product_name": "Fantastic Dog Food",
+                        "product_type": "Dog Food",
+                        "product_department": "Pets",
+                        "product_departmentId": "pets",
+                        "product_stock": 109,
+                        "product_color": "blue",
+                        "product_price": 592,
+                        "product_material": "Granite",
+                        "product_description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months
+                        battery life and modern design",
+                        "product_ratings": 3,
+                        "product_sales": 1478,
+                        "__v": 1
                     }
                 }
                 </pre>

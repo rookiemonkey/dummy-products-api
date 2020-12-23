@@ -41,7 +41,7 @@ yarn run docs:build
 
 2. when contributing images for existing product type,
 - images should be added in its respective department folder
-- images should have a create commons license. Use Google's advance search capabilities
+- images should have a creative commons license. Use Google's advance search capabilities
 - include the src url of the image for checking as well
 - should be png w/ transparent background
 - should be in 3 different sizes (150x150, 300x300, 600x600)

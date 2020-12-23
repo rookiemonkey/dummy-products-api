@@ -2,6 +2,7 @@ const { Router } = require('express');
 const router = Router({ mergeParams: true });
 const DepartmentController = require("./department");
 const ProductController = require("./product");
+const ActionController = require('./action');
 const checkDept = require('../middlewares/checkDepartment');
 const checkQuery = require('../middlewares/checkQuery');
 const checkFilter = require('../middlewares/checkFilters');
@@ -45,6 +46,14 @@ router.route('/products/search')
 
 router.route('/products/:prodId')
     .get(ProductController.getAProduct)
+
+
+
+
+// ACTION Controllers
+router.route('/actions/checkout')
+    .post(ActionController.checkout)
+
 
 
 

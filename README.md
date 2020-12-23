@@ -21,7 +21,6 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
 - dummy users
 - dummy cart
-- dummy checkout (POST)
 - remove unnecessary routes to utilize query strings
 - add dimensions property on Product Model?
 - add discount property on Product Model?

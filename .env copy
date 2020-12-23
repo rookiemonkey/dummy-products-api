@@ -1,5 +1,7 @@
 PORT="5050"
 NODE_ENV="development"
+BASE_URL_DEV="http://localhost:5050"
+BASE_URL_PROD="https://dummyproducts-api.herokuapp.com"
 MONGODB_URL=""
 GMAILUN=""
 GMAILPW=""

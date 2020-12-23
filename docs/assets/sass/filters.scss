@@ -1,6 +1,10 @@
 .container-filter {
     text-align: justify;
 
+    p {
+        margin: $spacing_sm 0px;
+    }
+
     small {
         font-size: 0.8rem;
         margin-top: $spacing_lg;

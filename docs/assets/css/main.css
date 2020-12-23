@@ -291,6 +291,8 @@ header {
 
 .container-filter {
   text-align: justify; }
+  .container-filter p {
+    margin: 8px 0px; }
   .container-filter small {
     font-size: 0.8rem;
     margin-top: 20px; }

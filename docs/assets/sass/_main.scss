@@ -55,6 +55,7 @@ body {
 .container-baseurl,
 .container-departmentroutes,
 .container-productroutes,
+.container-actionroutes,
 .container-basicusage,
 .container-filter,
 .container-pagination,
@@ -78,6 +79,10 @@ footer {
     border-radius: 15px;
     background-color: green;
     margin-right: $spacing_lg;
+}
+
+.post {
+    background-color: blue !important;
 }
 
 .parameter {
@@ -111,6 +116,7 @@ footer {
     .container-baseurl,
     .container-departmentroutes,
     .container-productroutes,
+    .container-actionroutes,
     .container-basicusage,
     .container-filter,
     .container-pagination,
@@ -130,6 +136,7 @@ footer {
     .container-baseurl,
     .container-departmentroutes,
     .container-productroutes,
+    .container-actionroutes,
     .container-basicusage,
     .container-filter,
     .container-pagination,

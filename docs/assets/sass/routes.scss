@@ -1,5 +1,6 @@
 .container-departmentroutes,
-.container-productroutes {
+.container-productroutes,
+.container-actionroutes {
 
     ul {
         margin-left: $spacing_lg+$spacing_lg;
@@ -15,7 +16,12 @@
         }
     }
 
-    p {
+    pre.route-samplerequest {
+        margin-top: $spacing_sm;
+        overflow: auto;
+    }
+
+    p, pre.route-samplerequest {
         width: 100%;
         font-weight: 800;
         font-style: normal;
@@ -29,7 +35,8 @@
 
 @media screen and (max-width: 375px) { // MOBILE
     .container-departmentroutes,
-    .container-productroutes {
+    .container-productroutes,
+    .container-actionroutes {
 
         ul {
             li {

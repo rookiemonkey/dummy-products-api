@@ -40,6 +40,7 @@ body {
 .container-baseurl,
 .container-departmentroutes,
 .container-productroutes,
+.container-actionroutes,
 .container-basicusage,
 .container-filter,
 .container-pagination,
@@ -56,6 +57,7 @@ footer {
   .container-baseurl h2,
   .container-departmentroutes h2,
   .container-productroutes h2,
+  .container-actionroutes h2,
   .container-basicusage h2,
   .container-filter h2,
   .container-pagination h2,
@@ -70,6 +72,9 @@ footer {
   border-radius: 15px;
   background-color: green;
   margin-right: 20px; }
+
+.post {
+  background-color: blue !important; }
 
 .parameter {
   color: rgba(0, 0, 0, 0.8);
@@ -97,6 +102,7 @@ footer {
   .container-baseurl,
   .container-departmentroutes,
   .container-productroutes,
+  .container-actionroutes,
   .container-basicusage,
   .container-filter,
   .container-pagination,
@@ -112,6 +118,7 @@ footer {
   .container-baseurl,
   .container-departmentroutes,
   .container-productroutes,
+  .container-actionroutes,
   .container-basicusage,
   .container-filter,
   .container-pagination,
@@ -243,18 +250,30 @@ header {
   color: rgba(0, 0, 0, 0.8); }
 
 .container-departmentroutes ul,
-.container-productroutes ul {
+.container-productroutes ul,
+.container-actionroutes ul {
   margin-left: 40px; }
   .container-departmentroutes ul li,
-  .container-productroutes ul li {
+  .container-productroutes ul li,
+  .container-actionroutes ul li {
     font-style: italic;
     list-style-type: none; }
   .container-departmentroutes ul li:not(:last-child),
-  .container-productroutes ul li:not(:last-child) {
+  .container-productroutes ul li:not(:last-child),
+  .container-actionroutes ul li:not(:last-child) {
     margin-bottom: 20px; }
 
-.container-departmentroutes p,
-.container-productroutes p {
+.container-departmentroutes pre.route-samplerequest,
+.container-productroutes pre.route-samplerequest,
+.container-actionroutes pre.route-samplerequest {
+  margin-top: 8px;
+  overflow: auto; }
+
+.container-departmentroutes p, .container-departmentroutes pre.route-samplerequest,
+.container-productroutes p,
+.container-productroutes pre.route-samplerequest,
+.container-actionroutes p,
+.container-actionroutes pre.route-samplerequest {
   width: 100%;
   font-weight: 800;
   font-style: normal;
@@ -265,15 +284,18 @@ header {
 
 @media screen and (max-width: 375px) {
   .container-departmentroutes ul li p,
-  .container-productroutes ul li p {
+  .container-productroutes ul li p,
+  .container-actionroutes ul li p {
     overflow: auto; }
     .container-departmentroutes ul li p span.method,
-    .container-productroutes ul li p span.method {
+    .container-productroutes ul li p span.method,
+    .container-actionroutes ul li p span.method {
       margin-bottom: 8px;
       display: block;
       width: 47px; }
     .container-departmentroutes ul li p span.response,
-    .container-productroutes ul li p span.response {
+    .container-productroutes ul li p span.response,
+    .container-actionroutes ul li p span.response {
       display: none; } }
 
 .container-basicusage {

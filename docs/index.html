@@ -432,12 +432,64 @@
         </ul>
     </article>
 
+    <article class="container-actionroutes">
+        <h2>Action Routes</h2>
+        <ul>
+            <li>
+                Emulate checkout and returns details of the transaction. Nothing is inserted on the database.
+                <p>
+                    <span class="method post">&nbsp; POST &nbsp;</span>
+                    /api/v1/actions/checkout
+                    <span class="response" data-action="checkout">See Response</span>
+                </p>
+                <pre class="route-samplerequest">
+
+            fetch(`${baseurl}/api/v1/actions/checkout?apikey=XXXXXXXXX`, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    items: ['5fe1311b7aa7711eb3c0fff4', '5fe1311d7aa7711eb3c0fffa']
+                })
+            })
+                </pre>
+                <pre class="route-response" data-view="checkout" style="display: none;">
+                {
+                    "success": true,
+                    "datatype": "CHECKOUT",
+                    "date": "Wed Dec 23 2020 9:37:40 am",
+                    "totalItems": 2,
+                    "totalAmount": 952,
+                    "itemsBought": [
+                        {
+                            "product_image_sm": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_150.png",
+                            "product_image_md": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_300.png",
+                            "product_image_lg": "https://dummyproducts-api.herokuapp.com/gadgets/mobilephone_600.png",
+                            "_id": "5fe1311b7aa7711eb3c0fff4",
+                            "product_name": "Fantastic Mobile Phone",
+                            "product_price": 267
+                        },
+                        {
+                            "product_image_sm": "https://dummyproducts-api.herokuapp.com/gadgets/computertable_150.png",
+                            "product_image_md": "https://dummyproducts-api.herokuapp.com/gadgets/computertable_300.png",
+                            "product_image_lg": "https://dummyproducts-api.herokuapp.com/gadgets/computertable_600.png",
+                            "_id": "5fe1311d7aa7711eb3c0fffa",
+                            "product_name": "Unbranded Computer Table",
+                            "product_price": 685
+                        }
+                    ]
+                }
+                </pre>
+            </li>
+        </ul>
+    </article>
+
     <article class="container-basicusage">
         <h2>Basic Usage</h2>
         <p>Form the url and append the api key as a query string with key 'apikey'. <b>The 'apikey' is the only required
                 parameter on all routes</b></p>
         <pre>
-        fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX')
+        fetch(`${baseurl}/api/v1/products?apikey=XXXXXXXXX`)
                 .then(res => res.json())
                 .then(data => console.log(data))
         </pre>
@@ -468,7 +520,7 @@
             500 and (seperated by ^)
             less than 1500</small>
         <pre>
-        fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX&price=gt_500^lt_1500')
+        fetch(`${baseurl}/api/v1/products?apikey=XXXXXXXXX&price=gt_500^lt_1500`)
             .then(res => res.json())
             .then(data => console.log(data))
         </pre>
@@ -484,14 +536,14 @@
 
         <small>The query below only uses limit</small>
         <pre>
-        fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX&limit=5')
+        fetch(`${baseurl}/api/v1/products?apikey=XXXXXXXXX&limit=5`)
             .then(res => res.json())
             .then(data => console.log(data))
         </pre>
 
         <small>The query below uses both limit and page</small>
         <pre>
-        fetch('https://dummyproducts-api.herokuapp.com/api/v1/products?apikey=XXXXXXXXX&limit=5&page=2')
+        fetch(`${baseurl}/api/v1/products?apikey=XXXXXXXXX&limit=5&page=2`)
             .then(res => res.json())
             .then(data => console.log(data))
         </pre>

@@ -50,11 +50,15 @@ body {
 }
 
 .container-about,
+.container-features,
 .container-caveats,
 .container-baseurl,
 .container-departmentroutes,
 .container-productroutes,
+.container-actionroutes,
 .container-basicusage,
+.container-filter,
+.container-pagination,
 .container-form,
 footer {
     width: 100vw;
@@ -75,6 +79,10 @@ footer {
     border-radius: 15px;
     background-color: green;
     margin-right: $spacing_lg;
+}
+
+.post {
+    background-color: blue !important;
 }
 
 .parameter {
@@ -103,11 +111,15 @@ footer {
     $padingLR: 50px;
 
     .container-about,
+    .container-features,
     .container-caveats,
     .container-baseurl,
     .container-departmentroutes,
     .container-productroutes,
+    .container-actionroutes,
     .container-basicusage,
+    .container-filter,
+    .container-pagination,
     .container-form,
     footer {
         margin: ($spacing_lg+$spacing_lg+$spacing_lg) 0px;
@@ -119,11 +131,15 @@ footer {
     $padingLR: 20px;
 
     .container-about,
+    .container-features,
     .container-caveats,
     .container-baseurl,
     .container-departmentroutes,
     .container-productroutes,
+    .container-actionroutes,
     .container-basicusage,
+    .container-filter,
+    .container-pagination,
     .container-form,
     footer {
         margin: ($spacing_lg+$spacing_lg+$spacing_lg) 0px;
@@ -133,9 +149,12 @@ footer {
 
 @import './header.scss';
 @import './about.scss';
+@import './features.scss';
 @import './caveats.scss';
 @import './baseurl.scss';
 @import './routes.scss';
 @import './usage.scss';
+@import './filters.scss';
+@import './pagination.scss';
 @import './form.scss';
 @import './footer.scss';

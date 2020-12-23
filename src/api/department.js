@@ -1,14 +1,6 @@
 const handleAsync = require('../utilities/toHandleAsync');
 const Product = require('../models/Product');
 const Departments = require('../models/_department');
-const DepartmentIds = new Array();
-
-// helper variable: available department ids 
-for (let i = 0; i !== Departments.length; i++) {
-    const department = Departments[i];
-    const [id, key] = Object.keys(department);
-    DepartmentIds.push(department[id]);
-}
 
 /**
  * !PATH: /api/v1/departments
@@ -45,23 +37,33 @@ const getAllDepartments = handleAsync(async (req, res, next) => {
  * returns all the available products on a given department
  */
 const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
-    const product_departmentId = req.params.deptId
 
-    const isDepartmentExisting = DepartmentIds
-        .some(departmentId => departmentId == product_departmentId)
-
-    if (!isDepartmentExisting) throw new res.withError('Department not found', 404)
+    const numOfDeptProducts = await Product
+        .find({ product_departmentId: req.params.deptId })
+        .count();
 
     const departmentProductsArray = await Product
-        .find({ product_departmentId })
+        .find({ product_departmentId: req.params.deptId })
         .select('-product_reviews -product_description')
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S PRODUCTS",
         numOfResults: departmentProductsArray.length,
+        lastPage: Math.ceil(numOfDeptProducts / req.searchLimit),
+        page: req.searchPage,
         data: departmentProductsArray
-    })
+    }
+
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
+
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
+
+    res.json(response)
 })
 
 
@@ -70,25 +72,40 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
  * returns all the available products on a given department with ratings more than 4
  */
 const getAllTopRated = handleAsync(async (req, res, next) => {
-    const product_departmentId = req.params.deptId
 
-    const isDepartmentExisting = DepartmentIds
-        .some(departmentId => departmentId == product_departmentId)
-
-    if (!isDepartmentExisting) throw new res.withError('Department not found', 404)
+    const numOfDeptProducts = await Product
+        .find({
+            product_departmentId: req.params.deptId,
+            product_ratings: { $gte: 4, $lte: 5 }
+        })
+        .count();
 
     const departmentTopRated = await Product
-        .find({ product_departmentId, product_ratings: { $gte: 4, $lte: 5 } })
+        .find({
+            product_departmentId: req.params.deptId,
+            product_ratings: { $gte: 4, $lte: 5 }
+        })
         .sort({ product_ratings: 'descending' })
         .select('-product_reviews -product_description')
-        .limit(10);
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S TOP RATED PRODUCTS. Starting from the highest rating",
         numOfResults: departmentTopRated.length,
+        lastPage: Math.ceil(numOfDeptProducts / req.searchLimit),
+        page: req.searchPage,
         data: departmentTopRated
-    })
+    }
+
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
+
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
+
+    res.json(response)
 })
 
 
@@ -97,25 +114,40 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
  * returns all the available products on a given department with sales more than 1000
  */
 const getAllTopSales = handleAsync(async (req, res, next) => {
-    const product_departmentId = req.params.deptId
 
-    const isDepartmentExisting = DepartmentIds
-        .some(departmentId => departmentId == product_departmentId)
-
-    if (!isDepartmentExisting) throw new res.withError('Department not found', 404)
+    const numOfDeptProducts = await Product
+        .find({
+            product_departmentId: req.params.deptId,
+            product_sales: { $gte: 1000 }
+        })
+        .count();
 
     const departmentTopSales = await Product
-        .find({ product_departmentId, product_sales: { $gte: 1000 } })
+        .find({
+            product_departmentId: req.params.deptId,
+            product_sales: { $gte: 1000 }
+        })
         .sort({ product_sales: 'descending' })
         .select('-product_reviews -product_description')
-        .limit(10);
+        .limit(req.searchLimit)
+        .skip(req.searchSkip);
 
-    res.json({
+    const response = {
         success: true,
         datatype: "ALL DEPARTMENT'S TOP SALES PRODUCTS. Starting from the highest sales",
         numOfResults: departmentTopSales.length,
+        lastPage: Math.ceil(numOfDeptProducts / req.searchLimit),
+        page: req.searchPage,
         data: departmentTopSales
-    })
+    }
+
+    if (response.lastPage == 0)
+        throw new res.withError(`No results found`, 404)
+
+    if (response.page > response.lastPage)
+        throw new res.withError(`You've reached the last page, LAST PAGE: ${response.lastPage}`, 404)
+
+    res.json(response)
 })
 
 

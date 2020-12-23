@@ -35,11 +35,15 @@ body {
   background-position: bottom; }
 
 .container-about,
+.container-features,
 .container-caveats,
 .container-baseurl,
 .container-departmentroutes,
 .container-productroutes,
+.container-actionroutes,
 .container-basicusage,
+.container-filter,
+.container-pagination,
 .container-form,
 footer {
   width: 100vw;
@@ -48,11 +52,15 @@ footer {
   display: flex;
   flex-direction: column; }
   .container-about h2,
+  .container-features h2,
   .container-caveats h2,
   .container-baseurl h2,
   .container-departmentroutes h2,
   .container-productroutes h2,
+  .container-actionroutes h2,
   .container-basicusage h2,
+  .container-filter h2,
+  .container-pagination h2,
   .container-form h2,
   footer h2 {
     color: #007065;
@@ -64,6 +72,9 @@ footer {
   border-radius: 15px;
   background-color: green;
   margin-right: 20px; }
+
+.post {
+  background-color: blue !important; }
 
 .parameter {
   color: rgba(0, 0, 0, 0.8);
@@ -86,11 +97,15 @@ footer {
 
 @media screen and (max-width: 768px) {
   .container-about,
+  .container-features,
   .container-caveats,
   .container-baseurl,
   .container-departmentroutes,
   .container-productroutes,
+  .container-actionroutes,
   .container-basicusage,
+  .container-filter,
+  .container-pagination,
   .container-form,
   footer {
     margin: 60px 0px;
@@ -98,11 +113,15 @@ footer {
 
 @media screen and (max-width: 375px) {
   .container-about,
+  .container-features,
   .container-caveats,
   .container-baseurl,
   .container-departmentroutes,
   .container-productroutes,
+  .container-actionroutes,
   .container-basicusage,
+  .container-filter,
+  .container-pagination,
   .container-form,
   footer {
     margin: 60px 0px;
@@ -212,6 +231,11 @@ header {
   text-align: justify;
   margin-bottom: 20px; }
 
+.container-features ul {
+  margin-left: 60px; }
+  .container-features ul li {
+    font-weight: 800; }
+
 .container-caveats ul {
   margin-left: 60px; }
   .container-caveats ul li {
@@ -226,18 +250,30 @@ header {
   color: rgba(0, 0, 0, 0.8); }
 
 .container-departmentroutes ul,
-.container-productroutes ul {
+.container-productroutes ul,
+.container-actionroutes ul {
   margin-left: 40px; }
   .container-departmentroutes ul li,
-  .container-productroutes ul li {
+  .container-productroutes ul li,
+  .container-actionroutes ul li {
     font-style: italic;
     list-style-type: none; }
   .container-departmentroutes ul li:not(:last-child),
-  .container-productroutes ul li:not(:last-child) {
+  .container-productroutes ul li:not(:last-child),
+  .container-actionroutes ul li:not(:last-child) {
     margin-bottom: 20px; }
 
-.container-departmentroutes p,
-.container-productroutes p {
+.container-departmentroutes pre.route-samplerequest,
+.container-productroutes pre.route-samplerequest,
+.container-actionroutes pre.route-samplerequest {
+  margin-top: 8px;
+  overflow: auto; }
+
+.container-departmentroutes p, .container-departmentroutes pre.route-samplerequest,
+.container-productroutes p,
+.container-productroutes pre.route-samplerequest,
+.container-actionroutes p,
+.container-actionroutes pre.route-samplerequest {
   width: 100%;
   font-weight: 800;
   font-style: normal;
@@ -248,27 +284,64 @@ header {
 
 @media screen and (max-width: 375px) {
   .container-departmentroutes ul li p,
-  .container-productroutes ul li p {
+  .container-productroutes ul li p,
+  .container-actionroutes ul li p {
     overflow: auto; }
     .container-departmentroutes ul li p span.method,
-    .container-productroutes ul li p span.method {
+    .container-productroutes ul li p span.method,
+    .container-actionroutes ul li p span.method {
       margin-bottom: 8px;
       display: block;
       width: 47px; }
     .container-departmentroutes ul li p span.response,
-    .container-productroutes ul li p span.response {
+    .container-productroutes ul li p span.response,
+    .container-actionroutes ul li p span.response {
       display: none; } }
 
-.container-basicusage pre {
-  min-height: 100px;
-  border-radius: 15px;
-  background-color: #ffbca7;
-  display: flex;
-  align-items: center;
-  font-weight: 800;
-  margin-top: 12px;
-  padding-top: 12px;
-  overflow: auto; }
+.container-basicusage {
+  text-align: justify; }
+  .container-basicusage pre {
+    min-height: 100px;
+    border-radius: 15px;
+    background-color: #ffbca7;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    margin-top: 12px;
+    padding-top: 12px;
+    overflow: auto; }
+
+.container-filter {
+  text-align: justify; }
+  .container-filter p {
+    margin: 8px 0px; }
+  .container-filter small {
+    font-size: 0.8rem;
+    margin-top: 20px; }
+  .container-filter pre {
+    min-height: 100px;
+    border-radius: 15px;
+    background-color: #ffbca7;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    padding-top: 12px;
+    overflow: auto; }
+
+.container-pagination {
+  text-align: justify; }
+  .container-pagination small {
+    font-size: 0.8rem;
+    margin-top: 20px; }
+  .container-pagination pre {
+    min-height: 100px;
+    border-radius: 15px;
+    background-color: #ffbca7;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    padding-top: 12px;
+    overflow: auto; }
 
 .container-form {
   display: flex;

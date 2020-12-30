@@ -445,11 +445,15 @@
                 <pre class="route-samplerequest">
 
             fetch(`${baseurl}/api/v1/actions/checkout?apikey=XXXXXXXXX`, {
+                method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    items: ['5fe1311b7aa7711eb3c0fff4', '5fe1311d7aa7711eb3c0fffa']
+                    items: [
+                        {_id: '5fe1311b7aa7711eb3c0fff4', product_quantity: 1}, 
+                        {_id: '5fe1311d7aa7711eb3c0fffa', product_quantity: 2}
+                    ]
                 })
             })
                 </pre>

@@ -14,14 +14,19 @@ const checkout = handleAsync(async (req, res, next) => {
 
     for (let i = 0; i < items.length; i++) {
         const foundItem = await Product
-            .findById(items[i])
+            .findById(items[i]._id)
             .select(`-product_reviews -product_description 
             -product_stock -product_color -product_material -product_ratings
             -product_sales -product_department -product_departmentId -product_type
             -__v`)
 
-        totalAmount += foundItem.product_price;
-        itemsBought.push(foundItem);
+        const unfrozenDocument = foundItem.toObject();
+        const totalItemPrice = unfrozenDocument.product_price * items[i].product_quantity;
+
+        unfrozenDocument.product_quantity = items[i].product_quantity;
+
+        totalAmount += totalItemPrice;
+        itemsBought.push(unfrozenDocument);
     }
 
     res.json({

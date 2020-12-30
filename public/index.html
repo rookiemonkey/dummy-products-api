@@ -267,11 +267,15 @@
                 </pre></li></ul></article><article class=container-actionroutes><h2>Action Routes</h2><ul><li>Emulate checkout and returns details of the transaction. Nothing is inserted on the database.<p><span class="method post">&nbsp; POST &nbsp;</span> /api/v1/actions/checkout <span class=response data-action=checkout>See Response</span></p><pre class=route-samplerequest>
 
             fetch(`${baseurl}/api/v1/actions/checkout?apikey=XXXXXXXXX`, {
+                method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    items: ['5fe1311b7aa7711eb3c0fff4', '5fe1311d7aa7711eb3c0fffa']
+                    items: [
+                        {_id: '5fe1311b7aa7711eb3c0fff4', product_quantity: 1}, 
+                        {_id: '5fe1311d7aa7711eb3c0fffa', product_quantity: 2}
+                    ]
                 })
             })
                 </pre><pre class=route-response data-view=checkout style=display:none>

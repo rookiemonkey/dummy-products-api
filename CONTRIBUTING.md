@@ -1,17 +1,19 @@
 
 ## CONTRIBUTING TO DOCS
-1. all documentation assets are inside the /docs folder
+1. We are using webpack to package the frontend assets of the documentation, and all of the
+    documentation assets are inside the /docs folder
 - any changes on the styles/scripts should be done inside the same folder
 - any changes on the markups should also be done inside the same folder
+- any additional files should be imported on the main entry file ```webpack.js``` with corresponding loader if doesn't exist yet
 
 2. start the live server. Alternatively, you can navigate to /public and use an npm package called 'serve'. [check its docs here](https://www.npmjs.com/package/serve)
 ```
 yarn run server
 ```
 
-3. changes on the styles should reflect once sass files are compile into css. To do this, run the script:
+3. changes on the styles should reflect once sass files are compiled into css. To do this, run the script. However since we are utilizing webpack, just run
 ```
-yarn run docs:sass
+yarn run docs:build
 ```
 
 4. before commiting the changes you've made, make sure you build the /docs first. This will ouput the /public folder but all assets are minified for performance purposes. This folder is the one exposed to users and not the /docs folder

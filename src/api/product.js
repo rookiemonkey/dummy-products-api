@@ -145,6 +145,32 @@ const searchProducts = handleAsync(async (req, res, next) => {
 
 
 /**
+ * !PATH: /api/v1/products/random?limit=num
+ * returns num random products defaults to 20, handled by checkQuery middleware
+ * if the limit exceeds 20, it will still return 20 products
+ */
+const randomProducts = handleAsync(async (req, res, next) => {
+
+    // exclude description and reviews, match all since all ids exists
+    const results = await Product
+        .aggregate([
+            { "$match": { _id: { $exists: true } } },
+            { "$project": { product_description: 0, product_reviews: 0 } }
+        ])
+        .sample(req.searchLimit)
+
+    const response = {
+        success: true,
+        datatype: 'RANDOM PRODUCTS',
+        numOfResults: results.length,
+        data: results
+    }
+
+    res.json(response)
+})
+
+
+/**
  * !PATH: /api/v1/products/:prodId
  * returns information about a product
  */
@@ -164,8 +190,10 @@ const getAProduct = handleAsync(async (req, res, next) => {
     })
 })
 
+
 module.exports = {
     searchProducts,
+    randomProducts,
     getAllProducts,
     getAllTopRated,
     getAllTopSales,

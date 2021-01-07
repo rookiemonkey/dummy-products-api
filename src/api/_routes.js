@@ -44,6 +44,10 @@ router.route('/products/search')
     .get(checkQuery, checkFilter,
         ProductController.searchProducts)
 
+router.route('/products/random')
+    .get(checkQuery,
+        ProductController.randomProducts)
+
 router.route('/products/:prodId')
     .get(ProductController.getAProduct)
 

@@ -44,7 +44,7 @@ const getAllDepartmentProducts = handleAsync(async (req, res, next) => {
 
     const departmentProductsArray = await Product
         .find({ product_departmentId: req.params.deptId })
-        .select('-product_reviews -product_description')
+        .select('-product_reviews -product_description -__v')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
 
@@ -86,7 +86,7 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
             product_ratings: { $gte: 4, $lte: 5 }
         })
         .sort({ product_ratings: 'descending' })
-        .select('-product_reviews -product_description')
+        .select('-product_reviews -product_description -__v')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
 
@@ -128,7 +128,7 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
             product_sales: { $gte: 1000 }
         })
         .sort({ product_sales: 'descending' })
-        .select('-product_reviews -product_description')
+        .select('-product_reviews -product_description -__v')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
 

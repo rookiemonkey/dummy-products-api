@@ -377,6 +377,46 @@
                 </pre>
             </li>
             <li>
+                Get random products
+                <p>
+                    <span class="method">&nbsp; GET &nbsp;</span>
+                    /api/v1/products/random
+                    <span class="response" data-action="randomproducts">See Response</span>
+                </p>
+                <pre class="route-response" data-view="randomproducts" style="display: none;">
+                    {
+                        "success": true,
+                        "datatype": "RANDOM PRODUCTS",
+                        "numOfResults": 20,
+                        "data": [
+                                    {
+                                    "_id": "5ff2b2ee51faf62c874356c3",
+                                    "product_image_sm": "https://dummyproducts-api.herokuapp.com/groceries/fish_150.png",
+                                    "product_image_md": "https://dummyproducts-api.herokuapp.com/groceries/fish_300.png",
+                                    "product_image_lg": "https://dummyproducts-api.herokuapp.com/groceries/fish_600.png",
+                                    "product_name": "Safe and effective Fish",
+                                    "product_type": "Fish",
+                                    "product_department": "Groceries",
+                                    "product_departmentId": "groceries",
+                                    "product_stock": 90,
+                                    "product_color": "ivory",
+                                    "product_price": 395,
+                                    "product_material": "Cotton",
+                                    "product_ratings": 0,
+                                    "product_sales": 1249,
+                                    "__v": 1
+                                    },
+    
+                            ... 
+                            
+                            // more random products
+                            // max results is only 20, use limit to lessen the results.
+                            // see PAGINATION
+                        ]
+                    }
+                </pre>
+            </li>
+            <li>
                 Get all informations of a product from a specific product id
                 <p>
                     <span class="method">&nbsp; GET &nbsp;</span>

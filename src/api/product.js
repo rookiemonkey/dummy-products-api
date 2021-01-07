@@ -13,7 +13,7 @@ const getAllProducts = handleAsync(async (req, res, next) => {
 
     const productsArray = await Product
         .find(req.filter)
-        .select('-product_reviews -product_description')
+        .select('-product_reviews -product_description -__v')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
 
@@ -49,7 +49,7 @@ const getAllTopRated = handleAsync(async (req, res, next) => {
     const allTopRatedProducts = await Product
         .find({ product_ratings: { $gte: 4, $lte: 5 } })
         .sort({ product_ratings: 'descending' })
-        .select('-product_reviews -product_description')
+        .select('-product_reviews -product_description -__v')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
 
@@ -85,7 +85,7 @@ const getAllTopSales = handleAsync(async (req, res, next) => {
     const allTopSalesProducts = await Product
         .find({ product_sales: { $gte: 1000 } })
         .sort({ product_sales: 'descending' })
-        .select('-product_reviews -product_description')
+        .select('-product_reviews -product_description -__v')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
 
@@ -121,7 +121,7 @@ const searchProducts = handleAsync(async (req, res, next) => {
 
     const foundProducts = await Product
         .find(req.filter)
-        .select('-product_reviews -product_description')
+        .select('-product_reviews -product_description -__v')
         .limit(req.searchLimit)
         .skip(req.searchSkip);
 
@@ -145,12 +145,39 @@ const searchProducts = handleAsync(async (req, res, next) => {
 
 
 /**
+ * !PATH: /api/v1/products/random?limit=num
+ * returns num random products defaults to 20, handled by checkQuery middleware
+ * if the limit exceeds 20, it will still return 20 products
+ */
+const randomProducts = handleAsync(async (req, res, next) => {
+
+    // exclude description and reviews, match all since all ids exists
+    const results = await Product
+        .aggregate([
+            { "$match": { _id: { $exists: true } } },
+            { "$project": { product_description: 0, product_reviews: 0, __v: 0 } }
+        ])
+        .sample(req.searchLimit)
+
+    const response = {
+        success: true,
+        datatype: 'RANDOM PRODUCTS',
+        numOfResults: results.length,
+        data: results
+    }
+
+    res.json(response)
+})
+
+
+/**
  * !PATH: /api/v1/products/:prodId
  * returns information about a product
  */
 const getAProduct = handleAsync(async (req, res, next) => {
     const foundProduct = await Product
         .findById(req.params.prodId)
+        .select('-__v')
         .populate("product_reviews")
         .exec()
 
@@ -164,8 +191,10 @@ const getAProduct = handleAsync(async (req, res, next) => {
     })
 })
 
+
 module.exports = {
     searchProducts,
+    randomProducts,
     getAllProducts,
     getAllTopRated,
     getAllTopSales,

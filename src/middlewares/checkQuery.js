@@ -24,10 +24,17 @@ const checkQuery = (req, res, next) => {
         ? (page - 1) * searchLimit
         : 0;
 
+
     // appended needed data to req for the next handler
     req.searchLimit = searchLimit;
     req.searchPage = searchPage;
     req.searchSkip = searchSkip;
+
+
+    // for RANDOM PRODUCTS route, max num results should only be 20
+    if (req.route.path == '/products/random' && searchLimit > 20)
+        req.searchLimit = 20
+
     next()
 }
 

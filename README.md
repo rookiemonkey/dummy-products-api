@@ -11,6 +11,7 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 ### FEATURES
 * each dummy product has 3 dummy images (sizes 150x150, 300x300, 600x600) relative to product type (images used has CC license)
 * each dummy product comes with description, prices, stock, ratings, and 5 reviews
+* each dummy product query has an option to include similar products relative to its type or department
 * with filters, you filter by ```stocks, sales, price, ratings``` with operators ```lt, gt, lte, gte``` (where in ```lt``` is 'less than', and ```lte``` 'less than or equal to', same pattern goes with ```gt``` & ```gte```)
 	* filters will only work on ```/products``` and ```/products/search``` routes
 * with search route, matches all product names depending on the query. You need to use query string keys ```term``` which will throw an error if not provided

@@ -192,10 +192,28 @@ const getAProduct = handleAsync(async (req, res, next) => {
 
     if (similarities && similarities == 'true') {
         const similarProducts = await Product
-            .find({ product_type: foundProduct.product_type })
-            .select(`-product_reviews -product_description -product_sales
-        -product_color -product_material -__v`)
-            .limit(5)
+            .aggregate([
+                {
+                    "$match": {
+                        _id: { $ne: foundProduct._id },
+                        $or: [
+                            { product_type: foundProduct.product_type },
+                            { product_department: foundProduct.product_department }
+                        ]
+                    }
+                },
+                {
+                    "$project": {
+                        product_description: 0,
+                        product_reviews: 0,
+                        product_sales: 0,
+                        product_color: 0,
+                        product_material: 0,
+                        __v: 0
+                    }
+                }
+            ])
+            .sample(5)
 
         const unfrozenDocument = foundProduct.toObject();
         unfrozenDocument.product_similar = similarProducts;
@@ -205,7 +223,7 @@ const getAProduct = handleAsync(async (req, res, next) => {
     res.json({
         success: true,
         datatype: 'A PRODUCT',
-        data: finalResponse
+        data: response
     })
 })
 

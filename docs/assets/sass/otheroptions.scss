@@ -1,0 +1,19 @@
+.container-otheroptions {
+    text-align: justify;
+
+    small {
+        font-size: 0.8rem;
+        margin-top: $spacing_lg;
+    }
+
+    pre {
+        min-height: 100px;
+        border-radius: 15px;
+        background-color: $color_tertiary;
+        display: flex;
+        align-items: center;
+        font-weight: 800;
+        padding-top: $spacing_md;
+        overflow: auto;
+    }
+}

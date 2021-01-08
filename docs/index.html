@@ -51,6 +51,7 @@
         <h2>Features</h2>
         <ul>
             <li>Each product has 3 different size of images relative to product type</li>
+            <li>Option to include similar products against a queried product</li>
             <li>Supports filters thru number of stocks, sales, price, and ratings</li>
             <li>Supports search that matches all product names depending on the query</li>
             <li>Supports pagination on most of the available routes</li>
@@ -463,8 +464,7 @@
                         "product_description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months
                         battery life and modern design",
                         "product_ratings": 3,
-                        "product_sales": 1478,
-                        "__v": 1
+                        "product_sales": 1478
                     }
                 }
                 </pre>
@@ -592,6 +592,27 @@
         fetch(`${baseurl}/api/v1/products?apikey=XXXXXXXXX&limit=5&page=2`)
             .then(res => res.json())
             .then(data => console.log(data))
+        </pre>
+    </article>
+
+    <article class="container-otheroptions">
+        <h2>Other Options</h2>
+        <p>
+            <b>Similar Products</b>. This option is available only on <b>/products/:product_id</b> route and all you
+            need to do is to append a query string <b>&similarities=true</b> and this will add a new property to the
+            response <b>'product_similar',</b> which contains an array of products similar to the queried product with
+            max
+            total
+            of 5. By default <b>/products/:product_id</b>
+            route responds without similar products.
+        </p>
+
+        <small>Usage of 'similarities' option</small>
+        <pre>
+            fetch(`${baseurl}/api/v1/products/5fe131b47aa7711eb3c10216?apikey=XXXXXXXXX&similarities=true`)
+                .then(res => res.json())
+                .then(data => console.log(data))
+            }
         </pre>
     </article>
 

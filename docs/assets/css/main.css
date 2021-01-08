@@ -44,6 +44,7 @@ body {
 .container-basicusage,
 .container-filter,
 .container-pagination,
+.container-otheroptions,
 .container-form,
 footer {
   width: 100vw;
@@ -61,6 +62,7 @@ footer {
   .container-basicusage h2,
   .container-filter h2,
   .container-pagination h2,
+  .container-otheroptions h2,
   .container-form h2,
   footer h2 {
     color: #007065;
@@ -106,6 +108,7 @@ footer {
   .container-basicusage,
   .container-filter,
   .container-pagination,
+  .container-otheroptions,
   .container-form,
   footer {
     margin: 60px 0px;
@@ -122,6 +125,7 @@ footer {
   .container-basicusage,
   .container-filter,
   .container-pagination,
+  .container-otheroptions,
   .container-form,
   footer {
     margin: 60px 0px;
@@ -334,6 +338,21 @@ header {
     font-size: 0.8rem;
     margin-top: 20px; }
   .container-pagination pre {
+    min-height: 100px;
+    border-radius: 15px;
+    background-color: #ffbca7;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    padding-top: 12px;
+    overflow: auto; }
+
+.container-otheroptions {
+  text-align: justify; }
+  .container-otheroptions small {
+    font-size: 0.8rem;
+    margin-top: 20px; }
+  .container-otheroptions pre {
     min-height: 100px;
     border-radius: 15px;
     background-color: #ffbca7;

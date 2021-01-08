@@ -59,6 +59,7 @@ body {
 .container-basicusage,
 .container-filter,
 .container-pagination,
+.container-otheroptions,
 .container-form,
 footer {
     width: 100vw;
@@ -120,6 +121,7 @@ footer {
     .container-basicusage,
     .container-filter,
     .container-pagination,
+    .container-otheroptions,
     .container-form,
     footer {
         margin: ($spacing_lg+$spacing_lg+$spacing_lg) 0px;
@@ -140,6 +142,7 @@ footer {
     .container-basicusage,
     .container-filter,
     .container-pagination,
+    .container-otheroptions,
     .container-form,
     footer {
         margin: ($spacing_lg+$spacing_lg+$spacing_lg) 0px;
@@ -156,5 +159,6 @@ footer {
 @import './usage.scss';
 @import './filters.scss';
 @import './pagination.scss';
+@import './otheroptions.scss';
 @import './form.scss';
 @import './footer.scss';

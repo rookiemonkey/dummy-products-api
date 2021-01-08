@@ -171,10 +171,13 @@ const randomProducts = handleAsync(async (req, res, next) => {
 
 
 /**
- * !PATH: /api/v1/products/:prodId
+ * !PATH: /api/v1/products/:prodId?similarities=true
  * returns information about a product
  */
 const getAProduct = handleAsync(async (req, res, next) => {
+    const { similarities } = req.query;
+    let response;
+
     const foundProduct = await Product
         .findById(req.params.prodId)
         .select('-__v')
@@ -184,10 +187,25 @@ const getAProduct = handleAsync(async (req, res, next) => {
     if (!foundProduct)
         throw new res.withError('Product not found', 404)
 
+    if (!similarities || similarities != 'true')
+        response = foundProduct;
+
+    if (similarities && similarities == 'true') {
+        const similarProducts = await Product
+            .find({ product_type: foundProduct.product_type })
+            .select(`-product_reviews -product_description -product_sales
+        -product_color -product_material -__v`)
+            .limit(5)
+
+        const unfrozenDocument = foundProduct.toObject();
+        unfrozenDocument.product_similar = similarProducts;
+        response = unfrozenDocument;
+    }
+
     res.json({
         success: true,
         datatype: 'A PRODUCT',
-        data: foundProduct
+        data: finalResponse
     })
 })
 

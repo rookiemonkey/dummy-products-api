@@ -19,6 +19,16 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 	* pagination (```page``` & ```limit```) can be used with all routes except ```/departments``` and ```/products/:product_id```
 * with checkout, it only emulates the post request when buying something. nothing is inserted on the database but returns an object of the transaction
 
+### SAMPLE
+This is a dummy e-commerce website that consumes this API. This one is built using Vanilla JS wrapped with Typescript :tada: (just for experimentation)
+
+You can visit the repo [here](https://github.com/rookiemonkey/dummy-ecommerce)
+You can visit the website [here](https://krrb-prod-dummyecommerce.netlify.app/)
+
+![Screenshot](./dummyecommerce1.png)
+![Screenshot](./dummyecommerce2.png)
+![Screenshot](./dummyecommerce3.png)
+
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
 - dummy users
 - dummy cart

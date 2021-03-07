@@ -25,9 +25,9 @@ This is a dummy e-commerce website that consumes this API. This one is built usi
 You can visit the repo [here](https://github.com/rookiemonkey/dummy-ecommerce)
 You can visit the website [here](https://krrb-prod-dummyecommerce.netlify.app/)
 
-![Screenshot](./dummyecommerce1.png)
-![Screenshot](./dummyecommerce2.png)
-![Screenshot](./dummyecommerce3.png)
+![Screenshot](./screenshots/dummyecommerce1.png)
+![Screenshot](./screenshots/dummyecommerce2.png)
+![Screenshot](./screenshots/dummyecommerce3.png)
 
 ### TO DO LIST (OPEN FOR CONTRIBUTIONS)
 - dummy users

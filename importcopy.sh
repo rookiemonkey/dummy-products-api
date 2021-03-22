@@ -6,3 +6,4 @@ heroku config:set MONGODB_URL="" &&
 heroku config:set GMAILUN="" &&
 heroku config:set GMAILPW="" && 
 heroku config:set API_SECRET=""
+heroku config:set BASE_URL_PROD="https://dummyproducts-api.herokuapp.com"

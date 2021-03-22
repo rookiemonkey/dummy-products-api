@@ -1,0 +1,17 @@
+/*!
+ * Fork Corner - https://fork-corner.warengonzaga.com
+ * A modern and global open source fork corner label for your project's landing page.
+ * Version: 2.0.1
+ * Github: https://github.com/WarenGonzaga/fork-corner
+ * Licensed under The MIT License: http://opensource.org/licenses/MIT
+ * Copyright (c) 2021 Waren Gonzaga
+ *
+ * Facebook: @warengonzagaofficial
+ * Twitter: @warengonzaga
+ * Github: @warengonzaga
+ * Website: warengonzaga.com
+ */
+
+//! import css/js files
+
+//! import polyfill for webpack

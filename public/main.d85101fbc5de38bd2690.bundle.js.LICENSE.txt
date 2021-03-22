@@ -1,3 +1,0 @@
-//! import css/js files
-
-//! import polyfill for webpack

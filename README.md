@@ -2,11 +2,11 @@
 # DUMMY PRODUCTS REST API
 ![Made With](https://img.shields.io/badge/Made%20with-Node.JS-68A063?style=for-the-badge&logo=Node.JS)
 
-This API aims to replicate the behaviour of various ecommerce website data and this is best for prototyping such kind of website. It provides dummy products with placeholder images with different sizes. I made this because I cannot find any api that can provide such dummy products, though there are some like ebay dev, however, its such as hassle to request an access and read through all the long documentation since all I need is a fake product as a placeholder. Faker js would do, however, I'm looking for something that matches at least the name of the product and its type/department. and here you go!
+This API aims to replicate the behaviour of various ecommerce website data and this is best for prototyping such kind of website. It provides dummy products with placeholder images with different sizes. I made this because I cannot find any api that can provide such dummy products, though there are some like ebay dev, however, it's such as hassle to request an access and read through all the long documentation since all I need is a fake product as a placeholder. Faker js would do, however, I'm looking for something that matches at least the name of the product and its type/department. And here you go!
 
 [Documentation](https://dummyproducts-api.herokuapp.com)
 
-#### if you found this very useful, Please don't forget to star this repo! :tada: A rookie like me will highly appreaciate it
+#### if you found this very useful, please don't forget to star this repo! :tada: A rookie like me will highly appreciate it
 
 ### FEATURES
 * each dummy product has 3 dummy images (sizes 150x150, 300x300, 600x600) relative to product type (images used has CC license)
@@ -17,7 +17,7 @@ This API aims to replicate the behaviour of various ecommerce website data and t
 * with search route, matches all product names depending on the query. You need to use query string keys ```term``` which will throw an error if not provided
 * with pagination, you need to use query string keys ```page``` and ```limit```. You can use  both at the same time or one at a time
 	* pagination (```page``` & ```limit```) can be used with all routes except ```/departments``` and ```/products/:product_id```
-* with checkout, it only emulates the post request when buying something. nothing is inserted on the database but returns an object of the transaction
+* with checkout, it only emulates the post request when buying something. Nothing is inserted on the database but returns an object of the transaction
 
 ### SAMPLE
 This is a dummy e-commerce website that consumes this API. This one is built using Vanilla JS wrapped with Typescript :tada: (just for experimentation)
@@ -38,11 +38,11 @@ You can visit the website [here](https://krrb-prod-dummyecommerce.netlify.app/)
 
 ### CONTRIBUTING GUIDELINES
 
-Please check this [contributing guidlines](https://github.com/rookiemonkey/dummy-products-api/blob/dev/CONTRIBUTING.md)
+Please check this [contributing guidelines](https://github.com/rookiemonkey/dummy-products-api/blob/dev/CONTRIBUTING.md)
 
 ### CONTRIBUTORS ✨
 
-Thank you for all who contributed to this project!
+Thank you to all who contributed to this project!
 
 <table>
 	<tr>
@@ -52,7 +52,7 @@ Thank you for all who contributed to this project!
 Justin Balaguer</b></sub></a></a>
 		</td>
 	</tr>
-</table>
+</tablea
 
 ## Author: <i>Kevin Roi R. Basina</i>
 <a href="https://github.com/rookiemonkey">

@@ -43,10 +43,10 @@
             in production, which includes authorization and such, and some, unfortunately, stopped accepting new
             accounts to have access from their APIs.</p>
         </br>
-        <p>I've tried using Faker js however, I'm not satisfied with the commerce method it offers though I have to
-            admit that faker js is really helpful in some scenarios.</p>
+        <p>I've tried using Faker js however, I'm not satisfied with the commerce method it offers, though I have to
+            admit that Faker js is really helpful in some scenarios.</p>
         </br>
-        <p>This results to me, thinking of creating an API that mimics the structure of the data in a simpliest way
+        <p>This results to me, thinking of creating an API that mimics the structure of the data in the simplest way
             possible, and there goes Dummy Products API &#128522;</p>
     </article>
 
@@ -55,7 +55,7 @@
         <ul>
             <li>Each product has 3 different size of images relative to product type</li>
             <li>Option to include similar products against a queried product</li>
-            <li>Supports filters thru number of stocks, sales, price, and ratings</li>
+            <li>Supports filters through number of stocks, sales, price, and ratings</li>
             <li>Supports search that matches all product names depending on the query</li>
             <li>Supports pagination on most of the available routes</li>
             <li>Supports dummy checkout</li>
@@ -140,7 +140,7 @@
                         "product_sales": 901,
                         "__v": 1
                         },
-                
+
                         // more products from Gadgets department
                     ]
                 }
@@ -410,9 +410,9 @@
                                     "product_sales": 1249,
                                     "__v": 1
                                     },
-    
-                            ... 
-                            
+
+                            ...
+
                             // more random products
                             // max results is only 20, use limit to lessen the results.
                             // see PAGINATION
@@ -452,7 +452,7 @@
                                     "review_rating": 3,
                                     "__v": 0
                                 },
-                               
+
                                 // each product has 5 dummy reviews
                             ],
                         "_id": "5fe131b47aa7711eb3c10216",
@@ -494,7 +494,7 @@
                 },
                 body: JSON.stringify({
                     items: [
-                        {_id: '5fe1311b7aa7711eb3c0fff4', product_quantity: 1}, 
+                        {_id: '5fe1311b7aa7711eb3c0fff4', product_quantity: 1},
                         {_id: '5fe1311d7aa7711eb3c0fffa', product_quantity: 2}
                     ]
                 })
@@ -547,7 +547,7 @@
     <article class="container-filter">
         <h2>Filters</h2>
         <p>Filters are only available to <b>'/products'</b> and <b>'/products/search'</b> routes, and this is only for
-            the mean time while the API is under restructuring since the addidtion of several middlewares.
+            the mean time while the API is under restructuring since the addition of several middlewares.
         </p>
 
         <p>To apply filters you need to use any of these query string keys <b>'stocks'</b>,
@@ -557,8 +557,8 @@
         <p>
             Filter values should include any one operator <b>'lt'</b> which stands for <i>'less than'</i>,
             <b>'lte'</b> which stands for <i>'less than or equal to'</i>, <b>'gt'</b> which stands for <i>'greater
-                than'</i>, or <b>'gte'</b> which stands for <i>'greater than or equal to'</i>. after the operator, give
-            the value by writing <b>"_"</b> then the value, eg: <b>"lte_25"</b> less than or equal to 25.
+                than'</i>, or <b>'gte'</b> which stands for <i>'greater than or equal to'</i>. After the operator, give
+            the value by writing <b>"_"</b> then the value, e.g.: <b>"lte_25"</b> less than or equal to 25.
         </p>
 
         <p>
@@ -606,7 +606,7 @@
             response <b>'product_similar',</b> which contains an array of products similar to the queried product with
             max
             total
-            of 5. By default <b>/products/:product_id</b>
+            of 5. By default, the <b>/products/:product_id</b>
             route responds without similar products.
         </p>
 
